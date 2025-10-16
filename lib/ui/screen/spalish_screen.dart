@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:laza_shopping/routs/routs.dart';
 import 'package:laza_shopping/utils/appColor.dart';
 
@@ -18,7 +19,7 @@ class _SpalishScreenState extends State<SpalishScreen> {
   }
   Future<void>_moveToNextScreena()async{
     Future.delayed(Duration(seconds: 3),(){
-      Navigator.pushReplacementNamed(context, Routs.login_Screen);
+     Get.offAllNamed(Routs.login_Screen);
     });
 
 }

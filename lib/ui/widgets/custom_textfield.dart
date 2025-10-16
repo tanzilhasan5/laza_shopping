@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../utils/appColor.dart';
+
 class CustomTextField extends StatelessWidget {
   CustomTextField({
     super.key,
@@ -20,8 +22,8 @@ class CustomTextField extends StatelessWidget {
       controller: controller,
       obscureText: obsecureText,
       decoration:InputDecoration(
-        hintText: hintText,
-        labelText: labelText,
+        hintText: hintText,hintStyle: TextStyle(color:Colors.grey,fontSize: 13),
+        labelText: labelText,labelStyle: TextStyle(color:Colors.grey,fontSize: 13),
         enabledBorder: UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.grey)
         ),

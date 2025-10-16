@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:laza_shopping/routs/routs.dart';
 import 'package:laza_shopping/utils/appColor.dart';
 void main() {
@@ -10,9 +11,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       initialRoute: Routs.spalish_Screen,
-      routes:pages ,
+      getPages: pages,
       theme: ThemeData(
         primaryColor: AppColor.primaryColors
       ),

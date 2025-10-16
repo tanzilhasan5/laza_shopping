@@ -33,13 +33,16 @@ class _CustomSwitchState extends State<CustomSwitch> {
       children: [
         Text(
           widget.title,
-          style: const TextStyle(fontSize: 13),
+          style: const TextStyle(fontSize: 13,fontWeight: FontWeight.bold),
         ),
         Transform.scale(
           scaleX: 1,
           scaleY: 0.9,
           child: Switch(
-            activeThumbColor: AppColor.SwitchColor, // Replace with AppColor.SwitchColor if needed
+
+            activeThumbColor: Colors.white,
+            activeTrackColor: AppColor.SwitchColor,
+            // Replace with AppColor.SwitchColor if needed
             value: isSwitch,
             onChanged: (bool newValue) {
               setState(() {
