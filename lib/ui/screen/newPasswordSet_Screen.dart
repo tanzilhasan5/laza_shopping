@@ -15,41 +15,62 @@ class NewPasswordSetScreen extends StatefulWidget {
 }
 
 class _NewPasswordSetScreenState extends State<NewPasswordSetScreen> {
+  final TextEditingController _conformPassWordlController =
+      TextEditingController();
+  final TextEditingController _passWordController = TextEditingController();
+  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: 20),
         child: SafeArea(
-          child: Column(
-            children: [
-              SizedBox(height: 105),
-              Center(
-                child: Text(
-                  'New Password',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              children: [
+                SizedBox(height: 105),
+                Center(
+                  child: Text(
+                    'New Password',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
+                  ),
                 ),
-              ),
-              SizedBox(height: 68),
-              SizedBox(height:80),
-              CustomTextField(
-                hintText: 'Password',
-                labelText:'Enter your Pasword' ,
-              ),
-              SizedBox(height: 20,),
-              CustomTextField(
-                hintText: 'Confirm Password',
-                labelText:'Enter your Confirm Password' ,
-              ),
-              SizedBox(height: 200,),
-              Text('Please write your new password.',style: TextStyle(color: AppColor.textColor),),
-              SizedBox(height: 10,),
-              CustomButton(onpress: (){
-                Get.toNamed(Routs.Pin_verificationScreen);
-              },
-                title: 'Reset Password',
-              )
-            ],
+                SizedBox(height: 68),
+                SizedBox(height: 80),
+                CustomTextField(
+                  controller: _passWordController,
+                  hintText: 'Password',
+                  labelText: 'Enter your Pasword',
+                ),
+                SizedBox(height: 20),
+                CustomTextField(
+                  hintText: 'Confirm Password',
+                  labelText: 'Enter your Confirm Password',
+                  validator: (v) {
+                    if (_passWordController.text != v) {
+                      return "Password not match";
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(height: 200),
+                Text(
+                  'Please write your new password.',
+                  style: TextStyle(color: AppColor.textColor),
+                ),
+                SizedBox(height: 10),
+                CustomButton(
+                  onpress: () {
+                    if (_formKey.currentState!.validate()) {
+                      Get.toNamed(Routs.Pin_verificationScreen);
+                    }
+                  },
+                  title: 'Reset Password',
+                ),
+              ],
+            ),
           ),
         ),
       ),

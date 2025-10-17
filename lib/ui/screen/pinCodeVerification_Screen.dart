@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -7,8 +6,6 @@ import 'package:laza_shopping/utils/appColor.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 import '../../routs/routs.dart';
-import '../widgets/custom_ReachText.dart';
-
 
 class Pin_verification extends StatefulWidget {
   const Pin_verification({super.key});
@@ -29,48 +26,53 @@ class _Pin_verificationState extends State<Pin_verification> {
     return Scaffold(
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: 20),
-          child: Form(
-            key: _formKey,
-            child: Column(
-              children: [
-                SizedBox(height: 105),
-                Center(
-                  child: Text(
-                    'Forgot Password',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            children: [
+              SizedBox(height: 105),
+              Center(
+                child: Text(
+                  'Forgot Password',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
+                ),
+              ),
+              SizedBox(height: 68),
+              SvgPicture.asset('assets/image/loginobject.svg'),
+              SizedBox(height: 60),
+              _buildPinCodeTextField(),
+              SizedBox(height: 80),
+              Center(
+                child: RichText(
+                  text: TextSpan(
+                    text: '00:20 ',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    children: [
+                      TextSpan(
+                        text: ' resend confirmation code.',
+                        style: TextStyle(color: AppColor.textColor),
+                      ),
+                    ],
                   ),
                 ),
-                SizedBox(height: 68),
-                SvgPicture.asset('assets/image/loginobject.svg'),
-                SizedBox(height: 60),
-                _buildPinCodeTextField(),
-                SizedBox(height: 80,),
-                Center(
-                 child: RichText(text: TextSpan(
-                   text: '00:20 ',style: TextStyle(color: Colors.black,fontSize: 16,fontWeight: FontWeight.bold),
-                   children:[
-                     TextSpan(
-                       text: ' resend confirmation code.',style: TextStyle(color: AppColor.textColor)
-                     )
-                   ]
-                 )),
-                ),
-                const SizedBox(height: 24),
-                CustomButton(
-                  onpress: (){
-                    if (_formKey.currentState!.validate()) {
-
-                     Get.toNamed(Routs.NewPasswordSetScreen);
-
-                    }
-                  },
-                  title: 'Confirm Code',
-                ),
-              ],
-            ),
+              ),
+              const SizedBox(height: 24),
+              CustomButton(
+                onpress: () {
+                  if (_formKey.currentState!.validate()) {
+                    Get.toNamed(Routs.NewPasswordSetScreen);
+                  }
+                },
+                title: 'Confirm Code',
+              ),
+            ],
           ),
         ),
-
+      ),
     );
   }
 
@@ -80,7 +82,7 @@ class _Pin_verificationState extends State<Pin_verification> {
       animationType: AnimationType.fade,
       keyboardType: TextInputType.number,
       pinTheme: PinTheme(
-        fieldOuterPadding:EdgeInsetsGeometry.symmetric(horizontal:5 ) ,
+        fieldOuterPadding: EdgeInsetsGeometry.symmetric(horizontal: 5),
         inactiveColor: Colors.grey,
         shape: PinCodeFieldShape.box,
         borderRadius: BorderRadius.circular(10),
@@ -94,7 +96,7 @@ class _Pin_verificationState extends State<Pin_verification> {
       backgroundColor: Colors.transparent,
       enableActiveFill: true,
       validator: (val) {
-        if (val!.isEmpty) {
+        if (val!.length<4) {
           return 'Enter your Pincode';
         }
         return null;
