@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:laza_shopping/ui/widgets/custom_Button.dart';
-import 'package:laza_shopping/ui/widgets/custom_textfield.dart';
+import 'package:laza_shopping/ui/widgets/CustomAuthWidgets/custom_Button.dart';
+import 'package:laza_shopping/ui/widgets/CustomAuthWidgets/custom_textfield.dart';
 import 'package:laza_shopping/utils/appColor.dart';
 
 import '../../routs/routs.dart';

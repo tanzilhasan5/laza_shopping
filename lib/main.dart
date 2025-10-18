@@ -12,9 +12,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       initialRoute: Routs.spalish_Screen,
       getPages: pages,
       theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
         primaryColor: AppColor.primaryColors
       ),
     );

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../utils/appColor.dart';
+import '../../../utils/appColor.dart';
 
 /*
 class CustomTextField extends StatelessWidget {
@@ -74,17 +74,18 @@ class CustomTextField extends StatelessWidget {
           prefixIcon: prefixIcon,prefixIconColor: AppColor.textColor,
           suffixIcon:suffixIcon,suffixIconColor: AppColor.textColor,
           enabledBorder: OutlineInputBorder(
+
             borderRadius: BorderRadius.circular(8),
+
             borderSide: BorderSide(
-              color: AppColor.textColor,  // Border color when not focused
-              width: 2,          // Border width when not focused
+              color: AppColor.backgroundTextfield,
             ),
           ),
           // Focused border
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
             borderSide: BorderSide(
-              color: AppColor.textColor,  // Border color when focused
+              color: AppColor.backgroundTextfield,  // Border color when focused
               width: 2,          // Border width when focused
             ),
           ),

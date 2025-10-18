@@ -37,6 +37,7 @@ dependencies:
   flutter_svg: ^2.2.1
   get: ^4.7.2
   pin_code_fields:
+  otp_resend_timer: ^1.0.0
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +68,7 @@ flutter:
     - assets/icon/
     - assets/image/
     - assets/paymentimage/
+    - assets/galary/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

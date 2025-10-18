@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:laza_shopping/ui/widgets/custom_Button.dart';
+import 'package:laza_shopping/ui/widgets/CustomAuthWidgets/custom_Button.dart';
+import 'package:laza_shopping/ui/widgets/CustomAuthWidgets/otp_resent_timmer.dart';
 import 'package:laza_shopping/utils/appColor.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
@@ -43,7 +44,8 @@ class _Pin_verificationState extends State<Pin_verification> {
               _buildPinCodeTextField(),
               SizedBox(height: 80),
               Center(
-                child: RichText(
+                child: OtpTimmer()
+                /*RichText(
                   text: TextSpan(
                     text: '00:20 ',
                     style: TextStyle(
@@ -58,7 +60,7 @@ class _Pin_verificationState extends State<Pin_verification> {
                       ),
                     ],
                   ),
-                ),
+                ),*/
               ),
               const SizedBox(height: 24),
               CustomButton(

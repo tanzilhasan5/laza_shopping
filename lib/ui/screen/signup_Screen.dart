@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:laza_shopping/ui/widgets/customSwitch.dart';
-import 'package:laza_shopping/ui/widgets/custom_Button.dart';
-import 'package:laza_shopping/ui/widgets/custom_ReachText.dart';
-import 'package:laza_shopping/ui/widgets/custom_password_text_field.dart';
+import 'package:laza_shopping/ui/widgets/CustomAuthWidgets/customSwitch.dart';
+import 'package:laza_shopping/ui/widgets/CustomAuthWidgets/custom_Button.dart';
+import 'package:laza_shopping/ui/widgets/CustomAuthWidgets/custom_ReachText.dart';
+import 'package:laza_shopping/ui/widgets/CustomAuthWidgets/custom_password_text_field.dart';
 
 import '../../routs/routs.dart';
-import '../widgets/custom_textfield.dart';
+import '../widgets/CustomAuthWidgets/custom_textfield.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
