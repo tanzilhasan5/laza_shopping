@@ -38,6 +38,7 @@ dependencies:
   get: ^4.7.2
   pin_code_fields:
   otp_resend_timer: ^1.0.0
+  easy_stars: ^1.0.9
 
 dev_dependencies:
   flutter_test:
