@@ -6,6 +6,7 @@ class GallerySection extends StatelessWidget {
     'assets/galary/galary2.png',
     'assets/galary/galary3.png',
     'assets/galary/galary4.png',
+    'assets/galary/galary4.png',
   ];
 
   @override
@@ -19,35 +20,25 @@ class GallerySection extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemCount: galleryImages.length,
             itemBuilder: (context, index) {
+              final imagePath = galleryImages[index];
               return Padding(
                 padding: EdgeInsets.only(right: index == galleryImages.length - 1 ? 0 : 8),
-                child: GalleryImage(imagePath: galleryImages[index]),
+                child: Container(
+                  width: 80,
+                  height: 80,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    image: DecorationImage(
+                      image: AssetImage(imagePath),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                )
               );
             },
           ),
         ),
       ],
-    );
-  }
-}
-
-class GalleryImage extends StatelessWidget {
-  final String imagePath;
-
-  const GalleryImage({Key? key, required this.imagePath}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 80,
-      height: 80,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        image: DecorationImage(
-          image: AssetImage(imagePath),
-          fit: BoxFit.cover,
-        ),
-      ),
     );
   }
 }

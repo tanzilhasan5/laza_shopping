@@ -45,11 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
                  ],
                ),
                 SizedBox(height: 10,),
-               Column(
-                 children: [
-                   Custom_search_Ber(),
-                 ],
-               ),
+                Custom_search_Ber(),
                 SizedBox(height: 15,),
                 Row( mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -59,14 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Text('View All',style: TextStyle(color: AppColor.textColor,fontSize: 12,),)),
                 ],),
                 SizedBox(height: 15,),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      CustomTabBar()
-                    ],
-                  ),
-                ),
+                CustomTabBar(),
                 SizedBox(height: 15,),
                 Row( mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [

@@ -51,16 +51,7 @@ class _WishlistscreenState extends State<Wishlistscreen> {
                   ],
                 ),
                 SizedBox(height: 15),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Customsizeguide(text: 'S'),
-                    Customsizeguide(text: 'M'),
-                    Customsizeguide(text: 'L'),
-                    Customsizeguide(text: 'XL'),
-                    Customsizeguide(text: '2XL'),
-                  ],
-                ),
+                Customsizeguide(),
                 SizedBox(height: 15),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -76,7 +67,9 @@ class _WishlistscreenState extends State<Wishlistscreen> {
                   ],
                 ),
                 SizedBox(height: 15),
-                Row(children: [WishListReachText()]),
+                Row(children: [
+                  WishListReachText()
+                ]),
                 SizedBox(height: 15),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -101,11 +94,7 @@ class _WishlistscreenState extends State<Wishlistscreen> {
                     ),
                   ],
                 ),
-                /*Row(
-                  children: [
-                    CustomReview()
-                  ],
-                )*/
+                SizedBox(height: 15),
                 CustomReview()
               ],
             ),
