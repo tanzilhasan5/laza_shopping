@@ -44,7 +44,7 @@ class Customsizeguide extends StatelessWidget {
               ),
             );
           },
-          separatorBuilder: (context, index) => SizedBox(height: 10),
+          separatorBuilder: (context, index) => SizedBox(width: 10),
           itemCount: sizesGuide.length),
     );
 

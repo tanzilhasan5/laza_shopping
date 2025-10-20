@@ -26,7 +26,8 @@ class HeaderImage extends StatelessWidget {
             ),
             child: Padding(
               padding: const EdgeInsets.only(bottom: 188, right: 14, left: 14),
-              child: Row(
+              child:
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CircleAvatar(

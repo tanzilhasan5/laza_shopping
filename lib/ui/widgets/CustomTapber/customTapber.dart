@@ -44,7 +44,7 @@ class _CustomTabBarState extends State<CustomTabBar> {
             return  Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: List.generate(tabs.length, (index) {
-                final isSelected = index == selectedIndex;
+                final isSelected  = index == selectedIndex;
                 return Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 5),
                   child: TextButton(
@@ -81,7 +81,7 @@ class _CustomTabBarState extends State<CustomTabBar> {
             );
 
           },
-          separatorBuilder: (context, index) => SizedBox(height: 10) ,
+          separatorBuilder: (context, index) => SizedBox(width: 10) ,
           itemCount: tabs.length
       ),
     );

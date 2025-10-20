@@ -1,3 +1,4 @@
+/*
 import 'package:flutter/cupertino.dart';
 import 'package:laza_shopping/ui/widgets/CustomCard/customCard.dart';
 
@@ -55,3 +56,4 @@ class Customlistofcard extends StatelessWidget {
     );
   }
 }
+*/

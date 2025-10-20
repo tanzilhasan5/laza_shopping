@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:laza_shopping/ui/widgets/CustomCard/customCard.dart';
 import 'package:laza_shopping/ui/widgets/CustomCard/customListOfCard.dart';
 import 'package:laza_shopping/ui/widgets/CustomTapber/customTapber.dart';
 import 'package:laza_shopping/ui/widgets/SerchBer/customSearchBer.dart';
@@ -66,12 +67,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],),
           
                 SizedBox(height: 15,),
-               SingleChildScrollView(
+               /*SingleChildScrollView(
                  scrollDirection: Axis.vertical,
                    child: SizedBox(
                     child: Customlistofcard(),
                    ),
-               )
+               )*/
+                CustomCard()
               ],
             ),
           ),
