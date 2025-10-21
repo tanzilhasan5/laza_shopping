@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:laza_shopping/ui/widgets/CustomAuthWidgets/custom_Button.dart';
 
 class StarRatingSlider extends StatefulWidget {
   const StarRatingSlider({super.key});
@@ -71,8 +70,6 @@ class _StarRatingSliderState extends State<StarRatingSlider> {
               ),
             ],
           ),
-          SizedBox(height: 210),
-          CustomButton(title: "Submit Review", onpress: () {}),
         ],
       ),
     );
