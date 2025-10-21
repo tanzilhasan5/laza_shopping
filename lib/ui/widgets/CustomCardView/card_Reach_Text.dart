@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../../../utils/appColor.dart';
 
-class WishListReachText extends StatelessWidget {
-  const WishListReachText({
+class CardListReachText extends StatelessWidget {
+  const CardListReachText({
     super.key,
   });
 

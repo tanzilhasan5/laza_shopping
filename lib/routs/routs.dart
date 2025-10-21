@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:laza_shopping/ui/screen/ReviewScreen/add_review_Screen.dart';
-import 'package:laza_shopping/ui/screen/HomeScreen/mainbottomNaver.dart';
+import 'package:laza_shopping/ui/screen/MainBottomNavScreen/mainbottomNaver.dart';
 import 'package:laza_shopping/ui/screen/AuthScreen/forget_password_screen.dart';
 import 'package:laza_shopping/ui/screen/HomeScreen/home_screen.dart';
 import 'package:laza_shopping/ui/screen/AuthScreen/login_Screen.dart';
@@ -10,7 +10,8 @@ import 'package:laza_shopping/ui/screen/AuthScreen/pinCodeVerification_Screen.da
 import 'package:laza_shopping/ui/screen/AuthScreen/signup_Screen.dart';
 import 'package:laza_shopping/ui/screen/ReviewScreen/review_Screen.dart';
 import 'package:laza_shopping/ui/screen/spalish_screen.dart';
-import 'package:laza_shopping/ui/widgets/CustomCard/CardViewScreen.dart';
+import '../ui/screen/CardView/CardViewScreen.dart';
+import '../ui/screen/MyCartScreen/my_cart_Screen.dart';
 
 class Routs{
   static String spalish_Screen='/';
@@ -25,6 +26,8 @@ class Routs{
   static String CardViewScreen='/wishListtScreen';
   static String reviewScreen='/reviewScreen';
   static String addreviewScreen='/addreviewScreen';
+  static String cartScreen='/cartScreen';
+
 }
 List<GetPage> pages=[
   GetPage(name: Routs.spalish_Screen, page: ()=>SpalishScreen()),
@@ -38,5 +41,5 @@ List<GetPage> pages=[
   GetPage(name: Routs.CardViewScreen, page: ()=>CardView()),
   GetPage(name: Routs.reviewScreen, page: ()=>ReviewScreen()),
   GetPage(name: Routs.addreviewScreen, page: ()=>AddReviewScreen()),
-
+  GetPage(name: Routs.cartScreen, page: ()=>CartScreen()),
 ];

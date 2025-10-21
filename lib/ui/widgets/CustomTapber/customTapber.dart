@@ -25,7 +25,6 @@ class _CustomTabBarState extends State<CustomTabBar> {
       height: 50,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
-        padding: const EdgeInsets.symmetric(horizontal: 10),
         itemCount: tabs.length,
         separatorBuilder: (context, index) => const SizedBox(width: 10),
         itemBuilder: (context, index) {

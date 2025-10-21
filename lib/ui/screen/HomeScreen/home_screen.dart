@@ -3,6 +3,7 @@ import 'package:laza_shopping/ui/widgets/CustomCard/customCard.dart';
 import 'package:laza_shopping/ui/widgets/CustomCard/customListOfCard.dart';
 import 'package:laza_shopping/ui/widgets/CustomTapber/customTapber.dart';
 import 'package:laza_shopping/ui/widgets/SerchBer/customSearchBer.dart';
+import 'package:laza_shopping/ui/widgets/custom_reuseable_ListTile.dart';
 import 'package:laza_shopping/utils/appColor.dart';
 
 import '../../widgets/CustomAppberWidget/customAppBer.dart';
@@ -48,17 +49,22 @@ class _HomeScreenState extends State<HomeScreen> {
                 SizedBox(height: 10,),
                 Custom_search_Ber(),
                 SizedBox(height: 15,),
-                Row( mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text('Choose Brand',style: TextStyle(color: Colors.black,fontSize: 20,),),
-                    InkWell(
-                      onTap: (){},
-                        child: Text('View All',style: TextStyle(color: AppColor.textColor,fontSize: 12,),)),
-                ],),
+                CustomListTile(
+                  lefttitle: 'Choose Brand',
+                  righttitle: 'View All',
+                  ontap: (){},
+                ),
                 SizedBox(height: 15,),
+                ///<.....Chose Brand....>
                 CustomTabBar(),
                 SizedBox(height: 15,),
-
+                CustomListTile(
+                  lefttitle: 'New Arraival',
+                  righttitle: 'View All',
+                  ontap: (){},
+                ),
+                SizedBox(height: 15,),
+                ///<.....New Arraival....>
                 CustomCard()
               ],
             ),
