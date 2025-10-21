@@ -5,7 +5,7 @@ import 'package:laza_shopping/ui/widgets/CustomTapber/customTapber.dart';
 import 'package:laza_shopping/ui/widgets/SerchBer/customSearchBer.dart';
 import 'package:laza_shopping/utils/appColor.dart';
 
-import '../widgets/CustomAppberWidget/customAppBer.dart';
+import '../../widgets/CustomAppberWidget/customAppBer.dart';
 
 class HomeScreen extends StatefulWidget {
 
@@ -67,12 +67,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],),
           
                 SizedBox(height: 15,),
-               /*SingleChildScrollView(
-                 scrollDirection: Axis.vertical,
-                   child: SizedBox(
-                    child: Customlistofcard(),
-                   ),
-               )*/
                 CustomCard()
               ],
             ),
