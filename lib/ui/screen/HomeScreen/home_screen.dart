@@ -58,15 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 SizedBox(height: 15,),
                 CustomTabBar(),
                 SizedBox(height: 15,),
-                Row( mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text('Choose Brand',style: TextStyle(color: Colors.black,fontSize: 20,),),
-                    InkWell(
-                        onTap: (){},
-                        child: Text('View All',style: TextStyle(color: AppColor.textColor,fontSize: 12,),)),
-                  ],),
-          
-                SizedBox(height: 15,),
+
                 CustomCard()
               ],
             ),

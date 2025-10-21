@@ -221,7 +221,9 @@ class CustomCard extends StatelessWidget {
 
   Widget _buildCard(Map<String, String> item) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Get.toNamed(Routs.CardViewScreen);
+      },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -243,7 +245,7 @@ class CustomCard extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: () {
-                      Get.toNamed(Routs.wishListtScreen);
+                      //Get.toNamed(Routs.);
                     },
                     child: Icon(
                       Icons.favorite_border,

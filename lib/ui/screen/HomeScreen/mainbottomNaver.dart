@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:laza_shopping/ui/screen/HomeScreen/home_screen.dart';
-import 'package:laza_shopping/ui/screen/wishListScreen.dart';
+import 'package:laza_shopping/ui/widgets/CustomCard/CardViewScreen.dart';
 
 class MainButtomNavber extends StatefulWidget {
   const MainButtomNavber({super.key});
@@ -13,7 +13,6 @@ class MainButtomNavber extends StatefulWidget {
 class _MainButtomNavberState extends State<MainButtomNavber> {
   final List<Widget> _screen = [
     HomeScreen(),
-    Wishlistscreen()
   ];
   int _slectedIndex = 0;
 

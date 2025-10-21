@@ -10,7 +10,7 @@ import 'package:laza_shopping/ui/screen/AuthScreen/pinCodeVerification_Screen.da
 import 'package:laza_shopping/ui/screen/AuthScreen/signup_Screen.dart';
 import 'package:laza_shopping/ui/screen/ReviewScreen/review_Screen.dart';
 import 'package:laza_shopping/ui/screen/spalish_screen.dart';
-import 'package:laza_shopping/ui/screen/wishListScreen.dart';
+import 'package:laza_shopping/ui/widgets/CustomCard/CardViewScreen.dart';
 
 class Routs{
   static String spalish_Screen='/';
@@ -22,7 +22,7 @@ class Routs{
   static String forgetPasswordScreen='/forgetPasswordScreen';
   static String Pin_verificationScreen='/Pin_verificationScreen';
   static String NewPasswordSetScreen='/NewPasswordSetScreen';
-  static String wishListtScreen='/wishListtScreen';
+  static String CardViewScreen='/wishListtScreen';
   static String reviewScreen='/reviewScreen';
   static String addreviewScreen='/addreviewScreen';
 }
@@ -35,7 +35,7 @@ List<GetPage> pages=[
   GetPage(name: Routs.NewPasswordSetScreen, page: ()=>NewPasswordSetScreen()),
   GetPage(name: Routs.home_Screen, page: ()=>HomeScreen()),
   GetPage(name: Routs.main_buttom_naver, page: ()=>MainButtomNavber()),
-  GetPage(name: Routs.wishListtScreen, page: ()=>Wishlistscreen()),
+  GetPage(name: Routs.CardViewScreen, page: ()=>CardView()),
   GetPage(name: Routs.reviewScreen, page: ()=>ReviewScreen()),
   GetPage(name: Routs.addreviewScreen, page: ()=>AddReviewScreen()),
 

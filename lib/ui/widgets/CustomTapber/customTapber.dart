@@ -10,81 +10,62 @@ class CustomTabBar extends StatefulWidget {
 }
 
 class _CustomTabBarState extends State<CustomTabBar> {
-  int selectedIndex = 0; // track which tab is selected
+  int selectedIndex = 0;
+
   final List<Map<String, dynamic>> tabs = [
-    {
-      'name': 'Adidas',
-      'icon': 'assets/brand_logo/Adidas.svg',
-    },
-    {
-      'name': 'Nike',
-      'icon': 'assets/brand_logo/Adidas.svg',
-    },
-    {
-      'name': 'File',
-      'icon': 'assets/brand_logo/fila-9 1.svg',
-    },
-    {
-      'name': 'Pruma',
-      'icon': 'assets/brand_logo/Adidas.svg',
-    }
-
+    {'name': 'Adidas', 'icon': 'assets/brand_logo/Adidas.svg'},
+    {'name': 'Adidas', 'icon': 'assets/brand_logo/Adidas.svg'},
+    {'name': 'Adidas', 'icon': 'assets/brand_logo/Adidas.svg'},
+    {'name': 'Adidas', 'icon': 'assets/brand_logo/Adidas.svg'},
   ];
-
-
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 60,
+      height: 50,
       child: ListView.separated(
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index){
-            final Tabs=tabs[index];
-            return  Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: List.generate(tabs.length, (index) {
-                final isSelected  = index == selectedIndex;
-                return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 5),
-                  child: TextButton(
+        scrollDirection: Axis.horizontal,
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        itemCount: tabs.length,
+        separatorBuilder: (context, index) => const SizedBox(width: 10),
+        itemBuilder: (context, index) {
+          final tab = tabs[index];
+          final bool isSelected = index == selectedIndex;
 
-                    style: TextButton.styleFrom(
-                      backgroundColor: isSelected
-                          ? AppColor.primaryColors
-                          : AppColor.circleAvatersColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        selectedIndex = index;
-                      });
-                    },
-                    child: Row(
-                      children: [
-                        SvgPicture.asset(Tabs['icon']),
-                        SizedBox(width: 10,),
-                        Text(
-                          Tabs['name'.toString()],
-                          style: TextStyle(
-                            color: isSelected ? Colors.black87 : Colors.black87,
-                            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-                          ),
-                        ),
-                      ],
-                    ),
+          return TextButton(
+            style: TextButton.styleFrom(
+              backgroundColor: isSelected
+                  ? AppColor.primaryColors
+                  : AppColor.circleAvatersColor,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+            onPressed: () {
+              setState(() {
+                selectedIndex = index;
+              });
+            },
+            child: Row(
+              children: [
+                SvgPicture.asset(
+                  tab['icon'],
+                  height: 25,
+                ),
+                const SizedBox(width: 8),
+                Text(
+                  tab['name'],
+                  style: TextStyle(
+                    color: Colors.black87,
+                    fontWeight:
+                    isSelected ? FontWeight.bold : FontWeight.normal,
                   ),
-                );
-              }),
-            );
-
-          },
-          separatorBuilder: (context, index) => SizedBox(width: 10) ,
-          itemCount: tabs.length
+                ),
+              ],
+            ),
+          );
+        },
       ),
     );
-
   }
 }

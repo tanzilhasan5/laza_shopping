@@ -9,16 +9,16 @@ import 'package:laza_shopping/ui/widgets/CustomWishListWidgets/hedder_Image.dart
 import 'package:laza_shopping/ui/widgets/Custom_Reviews/custom_Review.dart';
 import 'package:laza_shopping/utils/appColor.dart';
 
-import '../widgets/CustomWishListWidgets/wishlist_Reach_Text.dart';
+import '../CustomWishListWidgets/wishlist_Reach_Text.dart';
 
-class Wishlistscreen extends StatefulWidget {
-  const Wishlistscreen({super.key});
+class CardView extends StatefulWidget {
+  const CardView({super.key});
 
   @override
-  State<Wishlistscreen> createState() => _WishlistscreenState();
+  State<CardView> createState() => _CardViewState();
 }
 
-class _WishlistscreenState extends State<Wishlistscreen> {
+class _CardViewState extends State<CardView> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(

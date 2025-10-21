@@ -64,6 +64,15 @@ class AddReviewScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 10,),
                 StarRatingSlider(),
+                SizedBox(height: 210,),
+                CustomButton(
+                  title: 'Submit Review',
+                  onpress: (){
+                    if(_formKey.currentState!.validate()){
+                      print('Review submitted');
+                    }
+                  },
+                )
           
           
               ],
