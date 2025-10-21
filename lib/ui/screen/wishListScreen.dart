@@ -1,5 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:laza_shopping/routs/routs.dart';
+import 'package:laza_shopping/ui/widgets/CustomAuthWidgets/custom_Button.dart';
 import 'package:laza_shopping/ui/widgets/CustomWishListWidgets/custom%20_card_gelary.dart';
 import 'package:laza_shopping/ui/widgets/CustomWishListWidgets/customSizeGuide.dart';
 import 'package:laza_shopping/ui/widgets/CustomWishListWidgets/hedder_Image.dart';
@@ -26,9 +29,9 @@ class _WishlistscreenState extends State<Wishlistscreen> {
             child: Column(
               children: [
                 HeaderImage(),
-                SizedBox(height: 15),
+                SizedBox(height: 10),
                 GallerySection(),
-                SizedBox(height: 15),
+                SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -50,9 +53,9 @@ class _WishlistscreenState extends State<Wishlistscreen> {
                     ),
                   ],
                 ),
-                SizedBox(height: 15),
+                SizedBox(height: 10),
                 Customsizeguide(),
-                SizedBox(height: 15),
+                SizedBox(height: 10),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -66,11 +69,11 @@ class _WishlistscreenState extends State<Wishlistscreen> {
                     ),
                   ],
                 ),
-                SizedBox(height: 15),
+                SizedBox(height: 10),
                 Row(children: [
                   WishListReachText()
                 ]),
-                SizedBox(height: 15),
+                SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -82,7 +85,9 @@ class _WishlistscreenState extends State<Wishlistscreen> {
                       ),
                     ),
                     InkWell(
-                      onTap: (){},
+                      onTap: (){
+                       Get.toNamed(Routs.reviewScreen);
+                      },
                       child: Text(
                         'View All',
                         style: TextStyle(
@@ -95,7 +100,27 @@ class _WishlistscreenState extends State<Wishlistscreen> {
                   ],
                 ),
                 SizedBox(height: 15),
-                CustomReview()
+                CustomReview(),
+                SizedBox(height: 10,),
+                Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque malesuada eget vitae amet...',
+                  style:TextStyle(fontSize: 15,fontWeight: FontWeight.w400,color: AppColor.textColor) ,),
+                SizedBox(height: 10,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                  Column(
+                    children: [
+                      Text('Total Price',style: TextStyle(fontSize: 15,fontWeight: FontWeight.w500,),),
+                      Text('with VAT,SD',style: TextStyle(fontSize: 11,fontWeight: FontWeight.w400,color: AppColor.textColor),)
+                    ],
+                  ),
+                  Text('\$125',style: TextStyle(fontSize: 17,fontWeight: FontWeight.w600,),)
+                ],),
+                SizedBox(height: 10,),
+                CustomButton(
+                  title: 'Add to Cart',
+                  onpress: (){},
+                )
               ],
             ),
           ),

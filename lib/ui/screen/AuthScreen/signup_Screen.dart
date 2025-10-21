@@ -5,8 +5,8 @@ import 'package:laza_shopping/ui/widgets/CustomAuthWidgets/custom_Button.dart';
 import 'package:laza_shopping/ui/widgets/CustomAuthWidgets/custom_ReachText.dart';
 import 'package:laza_shopping/ui/widgets/CustomAuthWidgets/custom_password_text_field.dart';
 
-import '../../routs/routs.dart';
-import '../widgets/CustomAuthWidgets/custom_textfield.dart';
+import '../../../routs/routs.dart';
+import '../../widgets/CustomAuthWidgets/custom_textfield.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});

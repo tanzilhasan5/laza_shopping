@@ -3,12 +3,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:laza_shopping/utils/appColor.dart';
 
+
 class CustomReview extends StatelessWidget {
   const CustomReview({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+
+
+    return
+      Column(
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -6,7 +6,7 @@ import 'package:laza_shopping/ui/widgets/CustomAuthWidgets/otp_resent_timmer.dar
 import 'package:laza_shopping/utils/appColor.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
-import '../../routs/routs.dart';
+import '../../../routs/routs.dart';
 
 class Pin_verification extends StatefulWidget {
   const Pin_verification({super.key});

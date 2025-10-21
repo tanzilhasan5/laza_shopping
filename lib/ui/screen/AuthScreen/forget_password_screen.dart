@@ -5,7 +5,7 @@ import 'package:laza_shopping/ui/widgets/CustomAuthWidgets/custom_Button.dart';
 import 'package:laza_shopping/ui/widgets/CustomAuthWidgets/custom_textfield.dart';
 import 'package:laza_shopping/utils/appColor.dart';
 
-import '../../routs/routs.dart';
+import '../../../routs/routs.dart';
 
 class ForgetPasswordScreen extends StatefulWidget {
   const ForgetPasswordScreen({super.key});

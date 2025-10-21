@@ -7,7 +7,7 @@ import 'package:laza_shopping/ui/widgets/CustomAuthWidgets/custom_ReachText.dart
 import 'package:laza_shopping/ui/widgets/CustomAuthWidgets/custom_password_text_field.dart';
 import 'package:laza_shopping/utils/appColor.dart';
 
-import '../widgets/CustomAuthWidgets/custom_textfield.dart';
+import '../../widgets/CustomAuthWidgets/custom_textfield.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
