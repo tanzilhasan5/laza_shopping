@@ -1,5 +1,6 @@
 
 import 'package:get/get_navigation/src/routes/get_route.dart';
+import 'package:laza_shopping/ui/screen/Addressbook/address_Screen.dart';
 import 'package:laza_shopping/ui/screen/ReviewScreen/add_review_Screen.dart';
 import 'package:laza_shopping/ui/screen/MainBottomNavScreen/mainbottomNaver.dart';
 import 'package:laza_shopping/ui/screen/AuthScreen/forget_password_screen.dart';
@@ -26,7 +27,9 @@ class Routs{
   static String CardViewScreen='/wishListtScreen';
   static String reviewScreen='/reviewScreen';
   static String addreviewScreen='/addreviewScreen';
-  static String cartScreen='/cartScreen';
+  static String mycartScreen='/mycartScreen';
+  static String addressScreen='/addresstScreen';
+
 
 }
 List<GetPage> pages=[
@@ -41,5 +44,7 @@ List<GetPage> pages=[
   GetPage(name: Routs.CardViewScreen, page: ()=>CardView()),
   GetPage(name: Routs.reviewScreen, page: ()=>ReviewScreen()),
   GetPage(name: Routs.addreviewScreen, page: ()=>AddReviewScreen()),
-  GetPage(name: Routs.cartScreen, page: ()=>CartScreen()),
+  GetPage(name: Routs.mycartScreen, page: ()=>MyCartScreen()),
+  GetPage(name: Routs.addressScreen, page: ()=>AddressScreen()),
+
 ];

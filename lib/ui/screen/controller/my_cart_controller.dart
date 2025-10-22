@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 class AddToCartController extends GetxController {
   var cartItems = <Map<String, dynamic>>[
     {
-      'image': 'assets/images/shirt.png',
+      'image': 'assets/card_image/card1.png',
       'title': "Men's Tie-Dye T-Shirt",
       'brand': "Nike Sportswear",
       'price': 45.0,
@@ -11,7 +11,15 @@ class AddToCartController extends GetxController {
       'quantity': 1,
     },
     {
-      'image': 'assets/images/shirt2.png',
+      'image': 'assets/card_image/card2.png',
+      'title': "Men's Tie-Dye T-Shirt",
+      'brand': "Nike Sportswear",
+      'price': 45.0,
+      'tax': 4.0,
+      'quantity': 1,
+    },
+    {
+      'image': 'assets/card_image/card1.png',
       'title': "Men's Cotton Hoodie",
       'brand': "Nike Sportswear",
       'price': 65.0,
@@ -19,7 +27,7 @@ class AddToCartController extends GetxController {
       'quantity': 1,
     },
     {
-      'image': 'assets/images/jacket.png',
+      'image': 'assets/card_image/card2.png',
       'title': "Men's Casual Jacket",
       'brand': "Zara",
       'price': 90.0,

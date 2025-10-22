@@ -38,7 +38,7 @@ class MyCartList extends StatelessWidget {
                     ),
                     child: Image.asset(
                       item['image'],
-                      fit: BoxFit.cover,
+                      fit: BoxFit.fill,
                     ),
                   ),
                   const SizedBox(width: 10),
@@ -75,7 +75,7 @@ class MyCartList extends StatelessWidget {
                           ),
                         ),
 
-                        // ➕➖ Quantity Row
+                        //
                         Row(
                           children: [
                             Row(
@@ -121,7 +121,7 @@ class MyCartList extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            const SizedBox(width: 70),
+                            const SizedBox(width: 80),
                             Container(
                               height: 25,
                               width: 25,

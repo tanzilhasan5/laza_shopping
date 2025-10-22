@@ -15,7 +15,7 @@ class _MainButtomNavberState extends State<MainButtomNavber> {
   final List<Widget> _screen = [
     HomeScreen(),
     HomeScreen(),
-    CartScreen(),
+    MyCartScreen(),
   ];
   int _slectedIndex = 0;
 

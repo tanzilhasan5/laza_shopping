@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
 import 'package:laza_shopping/ui/widgets/MyCardWidgets/custom_Row_use_delevery_and_payment_section.dart';
 import 'package:laza_shopping/ui/widgets/MyCardWidgets/my_cart_widgets.dart';
-import 'package:laza_shopping/utils/appColor.dart';
-import '../controller/my_cart_controller.dart';
 
-class CartScreen extends StatelessWidget {
-  CartScreen({super.key});
+
+class MyCartScreen extends StatelessWidget {
+  MyCartScreen({super.key});
 
 
 
@@ -26,7 +25,7 @@ class CartScreen extends StatelessWidget {
           children: [
         ///<<<<<<MycartList>>>>>
             MyCartList(),
-            CustomRow()
+            CustomDeleveryAndPayment(),
           ]
       ))
 
