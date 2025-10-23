@@ -105,9 +105,11 @@ class _CardViewState extends State<CardView> {
 
 
                 SizedBox(height: 10),
-                CustomButton(title: 'Add to Cart', onpress: () {
-                  Get.toNamed(Routs.mycartScreen);
-                }),
+                Center(
+                  child: CustomButton(title: 'Add to Cart', onpress: () {
+                    Get.toNamed(Routs.mycartScreen);
+                  }),
+                ),
                 SizedBox(height: 20),
               ],
             ),

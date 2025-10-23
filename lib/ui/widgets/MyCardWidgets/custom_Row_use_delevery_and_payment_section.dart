@@ -258,14 +258,16 @@ class _CustomDeleveryAndPaymentState extends State<CustomDeleveryAndPayment> {
         const SizedBox(height: 10),
 
         ///<<<<<<<<<<<< Checkout Button >>>>>>>>>>>>
-        CustomButton(
-          title: 'Checkout',
-          onpress: () {
-            bool isValid = _validateAndSubmit();
-            if (isValid) {
-              Get.toNamed(Routs.addressScreen);
-            }
-          },
+        Center(
+          child: CustomButton(
+            title: 'Checkout',
+            onpress: () {
+              bool isValid = _validateAndSubmit();
+              if (isValid) {
+                Get.toNamed(Routs.addressScreen);
+              }
+            },
+          ),
         ),
 
         const SizedBox(height: 10),

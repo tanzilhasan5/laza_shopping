@@ -53,12 +53,13 @@ class CustomTextField extends StatelessWidget {
             ),
           ),
           errorBorder: OutlineInputBorder(
+
             borderRadius: BorderRadius.circular(8),
             borderSide: BorderSide(color: Colors.red, width: 2),
           ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8.95),
-          )
+          ),
       ),
     );
   }

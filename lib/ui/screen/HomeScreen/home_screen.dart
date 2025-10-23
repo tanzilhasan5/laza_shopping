@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:laza_shopping/ui/widgets/CustomCard/customCard.dart';
 import 'package:laza_shopping/ui/widgets/CustomCard/customListOfCard.dart';
+import 'package:laza_shopping/ui/widgets/CustomDrawer/drawer.dart';
 import 'package:laza_shopping/ui/widgets/CustomTapber/customTapber.dart';
 import 'package:laza_shopping/ui/widgets/SerchBer/customSearchBer.dart';
 import 'package:laza_shopping/ui/widgets/custom_reuseable_ListTile.dart';
 import 'package:laza_shopping/utils/appColor.dart';
 
+import '../../../routs/routs.dart';
 import '../../widgets/CustomAppberWidget/customAppBer.dart';
+final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
 
 class HomeScreen extends StatefulWidget {
 
@@ -21,7 +27,10 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+
       child: Scaffold(
+        key: _scaffoldKey,
+        drawer: CustomDrawer(),
         appBar:
         PreferredSize(
             preferredSize: Size(double.maxFinite, 100),
@@ -29,7 +38,13 @@ class _HomeScreenState extends State<HomeScreen> {
               leftIconColor: AppColor.circleAvatersColor,
               rightIconColor: AppColor.circleAvatersColor,
               leftIcon: 'assets/icon/menu.svg',
+              leftonTap: (){
+                _scaffoldKey.currentState!.openDrawer();
+              },
               rightIcon: 'assets/icon/Bag.svg',
+              rightonPress: (){
+                Get.toNamed(Routs.mycartScreen);
+              },
             )),
         body:
         SingleChildScrollView(

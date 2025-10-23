@@ -12,8 +12,8 @@ class Customappber extends StatelessWidget {
     this.medelIcon,
     this.leftIconColor = Colors.white,
     this.rightIconColor = Colors.white,
-    this.onTap,
-    this.onPress,
+    this.leftonTap,
+    this.rightonPress,
   });
 
   final String? leftIcon;
@@ -21,8 +21,8 @@ class Customappber extends StatelessWidget {
   final String? medelIcon;
   final Color? rightIconColor;
   final Color? leftIconColor;
-  final Function()? onTap;
-  final Function()? onPress;
+  final Function()? leftonTap;
+  final Function()? rightonPress;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class Customappber extends StatelessWidget {
           CircleAvatar(
             backgroundColor: leftIconColor,
             child: InkWell(
-              onTap: onPress,
+              onTap: leftonTap,
               child: SvgPicture.asset(leftIcon.toString()),
             ),
           ),
@@ -42,7 +42,7 @@ class Customappber extends StatelessWidget {
           CircleAvatar(
             backgroundColor: rightIconColor,
             child: InkWell(
-              onTap: () {},
+              onTap: rightonPress,
               child: SvgPicture.asset(rightIcon.toString()),
             ),
           ),

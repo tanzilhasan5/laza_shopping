@@ -42,7 +42,6 @@ class AddressScreen extends StatelessWidget {
                           child: CustomTextField(
                             validator: (value) {
                               if (value!.isEmpty) {
-                                return 'Please enter your country';
                               }
                               return null;
                             },
@@ -70,7 +69,6 @@ class AddressScreen extends StatelessWidget {
                           child: CustomTextField(
                             validator: (value) {
                               if (value!.isEmpty) {
-                                return 'Please enter your country';
                               }
                               return null;
                             },

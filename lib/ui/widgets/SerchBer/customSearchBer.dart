@@ -11,7 +11,7 @@ class Custom_search_Ber extends StatelessWidget {
     return
       Container(
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
               height: 50,
