@@ -55,6 +55,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 ),
               ),
               onTap: () {
+                Get.toNamed(Routs.accountInformationScreen);
                 setState(() => selectedIndex = 0);
               },
             ),
@@ -161,6 +162,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 ),
               ),
               onTap: () {
+                Get.offAllNamed(Routs.login_Screen);
                 setState(() => selectedIndex = 4);
               },
             ),

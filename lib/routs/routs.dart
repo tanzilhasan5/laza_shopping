@@ -11,6 +11,7 @@ import 'package:laza_shopping/ui/screen/AuthScreen/pinCodeVerification_Screen.da
 import 'package:laza_shopping/ui/screen/AuthScreen/signup_Screen.dart';
 import 'package:laza_shopping/ui/screen/ReviewScreen/review_Screen.dart';
 import 'package:laza_shopping/ui/screen/spalish_screen.dart';
+import 'package:laza_shopping/ui/widgets/CustomDrawerWidgets/Account_Information/accountInformation.dart';
 import '../ui/screen/CardView/CardViewScreen.dart';
 import '../ui/screen/MyCartScreen/my_cart_Screen.dart';
 
@@ -29,6 +30,8 @@ class Routs{
   static String addreviewScreen='/addreviewScreen';
   static String mycartScreen='/mycartScreen';
   static String addressScreen='/addresstScreen';
+  static String accountInformationScreen='/accountInformationScreen';
+
 
 
 }
@@ -46,5 +49,6 @@ List<GetPage> pages=[
   GetPage(name: Routs.addreviewScreen, page: ()=>AddReviewScreen()),
   GetPage(name: Routs.mycartScreen, page: ()=>MyCartScreen()),
   GetPage(name: Routs.addressScreen, page: ()=>AddressScreen()),
+  GetPage(name: Routs.accountInformationScreen, page: ()=>AccountInformation()),
 
 ];

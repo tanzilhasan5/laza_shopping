@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:laza_shopping/ui/screen/HomeScreen/home_screen.dart';
 import 'package:laza_shopping/ui/screen/WishListScreen/WishListScreen.dart';
 
+import '../../widgets/CustomDrawerWidgets/drawer.dart';
 import '../MyCartScreen/my_cart_Screen.dart';
 
 class MainButtomNavber extends StatefulWidget {
@@ -23,6 +24,8 @@ class _MainButtomNavberState extends State<MainButtomNavber> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
+      drawer: CustomDrawer(),
       body: _screen[_slectedIndex],
       bottomNavigationBar: NavigationBar(
         selectedIndex: _slectedIndex,
