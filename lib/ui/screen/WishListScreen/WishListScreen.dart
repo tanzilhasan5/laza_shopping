@@ -6,7 +6,7 @@ import 'package:laza_shopping/routs/routs.dart';
 
 import '../../../utils/appColor.dart';
 import '../../widgets/CustomCard/customCard.dart';
-import '../controller/wishlistController.dart';
+import '../../../Controller/wishlistController.dart';
 
 class WishListScreen extends StatelessWidget {
   const WishListScreen({super.key});

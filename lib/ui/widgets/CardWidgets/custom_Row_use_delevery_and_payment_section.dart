@@ -140,12 +140,16 @@ class _CustomDeleveryAndPaymentState extends State<CustomDeleveryAndPayment> {
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                Text(
+              children: [
+                const Text(
                   'Payment Method',
                   style: TextStyle(fontWeight: FontWeight.w500, fontSize: 17),
                 ),
-                Icon(Icons.chevron_right),
+                InkWell(
+                  onTap: (){
+                    Get.toNamed(Routs.my_cart_Screen);
+                  },
+                    child: const Icon(Icons.chevron_right)),
               ],
             ),
             Row(

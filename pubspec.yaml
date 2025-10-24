@@ -40,6 +40,7 @@ dependencies:
   otp_resend_timer: ^1.0.0
   easy_stars: ^1.0.9
   flutter_staggered_grid_view: ^0.7.0
+  flutter_credit_card: ^4.1.0
 
 dev_dependencies:
   flutter_test:

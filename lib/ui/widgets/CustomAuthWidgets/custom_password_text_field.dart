@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../utils/appColor.dart';
-import '../../screen/controller/authController.dart';
+import '../../../Controller/authController.dart';
 
 
 class CustomPasswordTextField extends StatelessWidget {

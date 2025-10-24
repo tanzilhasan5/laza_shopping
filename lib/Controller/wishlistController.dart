@@ -20,7 +20,6 @@ class WishlistController extends GetxController {
 
           ]
       );
-   /*   */
     } else {
       wishlist.add(item);
     }

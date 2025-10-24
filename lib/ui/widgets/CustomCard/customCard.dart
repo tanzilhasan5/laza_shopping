@@ -123,7 +123,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:laza_shopping/utils/appColor.dart';
 import '../../../routs/routs.dart';
-import '../../screen/controller/wishlistController.dart';
+import '../../../Controller/wishlistController.dart';
 
 class CustomCard extends StatelessWidget {
   CustomCard({super.key});

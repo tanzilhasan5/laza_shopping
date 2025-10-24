@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../utils/appColor.dart';
-import '../../screen/controller/cart_controller.dart';
+import '../../../Controller/cart_controller.dart';
 class MyCartList extends StatelessWidget {
 
   const MyCartList({super.key});
@@ -49,25 +49,21 @@ class MyCartList extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          item['title'],
+                          item['title'] ??'',
                           style: const TextStyle(
                             fontSize: 13,
                             fontWeight: FontWeight.w500,
                           ),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
                         ),
                         Text(
-                          item['brand'],
+                          item['brand']??'',
                           style: const TextStyle(
                             fontSize: 13,
                             fontWeight: FontWeight.w500,
                           ),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
                         ),
                         Text(
-                          '\$${item['price']} (-\$${item['tax']} Tax)',
+                          '\$${item['price']??''} (-\$${item['tax']??''} Tax)',
                           style: TextStyle(
                             fontSize: 11,
                             fontWeight: FontWeight.w400,

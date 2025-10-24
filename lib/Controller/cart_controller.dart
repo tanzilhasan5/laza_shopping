@@ -5,8 +5,7 @@ class AddToCartController extends GetxController {
   var cartItems = <Map<String, dynamic>>[
     {
       'image': 'assets/card_image/card1.png',
-      'title': "Men's Tie-Dye T-Shirt",
-      'brand': "Nike Sportswear",
+      'title': "Men's Tie-Dye T-Shirt Nike Sportswear",
       'price': 45.0,
       'tax': 4.0,
       'quantity': 1,
@@ -14,23 +13,20 @@ class AddToCartController extends GetxController {
     {
       'image': 'assets/card_image/card2.png',
       'title': "Men's Tie-Dye T-Shirt",
-      'brand': "Nike Sportswear",
       'price': 45.0,
       'tax': 4.0,
       'quantity': 1,
     },
     {
       'image': 'assets/card_image/card1.png',
-      'title': "Men's Cotton Hoodie",
-      'brand': "Nike Sportswear",
+      'title': "Men's Cotton Hoodie Nike Sportswear",
       'price': 65.0,
       'tax': 5.0,
       'quantity': 1,
     },
     {
       'image': 'assets/card_image/card2.png',
-      'title': "Men's Casual Jacket",
-      'brand': "Zara",
+      'brand': "Zara Nike Sportswear",
       'price': 90.0,
       'tax': 6.0,
       'quantity': 1,

@@ -42,13 +42,12 @@ class _CustomSwitchState extends State<CustomSwitch> {
 
             activeThumbColor: Colors.white,
             activeTrackColor: AppColor.SwitchColor,
-            // Replace with AppColor.SwitchColor if needed
             value: isSwitch,
             onChanged: (bool newValue) {
               setState(() {
                 isSwitch = newValue;
               });
-              widget.onChanged(newValue); // Call the callback
+              widget.onChanged(newValue);
             },
           ),
         ),
