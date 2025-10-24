@@ -28,7 +28,7 @@ class _CustomDeleveryAndPaymentState extends State<CustomDeleveryAndPayment> {
     // Return true if both are valid
     if (deliveryError == null && paymentError == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Proceeding to checkout')),
+        const SnackBar(content: Text(' Checkout Success')),
       );
       return true;
     }
@@ -45,12 +45,16 @@ class _CustomDeleveryAndPaymentState extends State<CustomDeleveryAndPayment> {
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                Text(
+              children: [
+                const Text(
                   'Delivery Address',
                   style: TextStyle(fontWeight: FontWeight.w500, fontSize: 17),
                 ),
-                Icon(Icons.chevron_right),
+                InkWell(
+                  onTap: (){
+                    Get.toNamed(Routs.addressScreen);
+                  },
+                    child: const Icon(Icons.chevron_right)),
               ],
             ),
             Row(
@@ -264,7 +268,7 @@ class _CustomDeleveryAndPaymentState extends State<CustomDeleveryAndPayment> {
             onpress: () {
               bool isValid = _validateAndSubmit();
               if (isValid) {
-                Get.toNamed(Routs.addressScreen);
+
               }
             },
           ),

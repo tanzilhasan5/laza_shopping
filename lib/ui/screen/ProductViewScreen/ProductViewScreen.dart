@@ -13,14 +13,14 @@ import '../../widgets/CustomCardView/customSizeGuide.dart';
 import '../../widgets/CustomCardView/hedder_Image.dart';
 import '../../widgets/CustomCardView/card_Reach_Text.dart';
 
-class CardView extends StatefulWidget {
-  const CardView({super.key});
+class ProductViewScreen extends StatefulWidget {
+  const ProductViewScreen({super.key});
 
   @override
-  State<CardView> createState() => _CardViewState();
+  State<ProductViewScreen> createState() => _ProductViewScreenState();
 }
 
-class _CardViewState extends State<CardView> {
+class _ProductViewScreenState extends State<ProductViewScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -56,7 +56,7 @@ class _CardViewState extends State<CardView> {
                 SizedBox(height: 10),
 
                 ///<<<<<<<<GallerySection>>>>>
-                GallerySection(),
+                Center(child: GallerySection()),
                 SizedBox(height: 10),
                 CustomListTile(lefttitle: 'Size', righttitle: 'Size Guide'),
                 SizedBox(height: 10),
@@ -107,7 +107,7 @@ class _CardViewState extends State<CardView> {
                 SizedBox(height: 10),
                 Center(
                   child: CustomButton(title: 'Add to Cart', onpress: () {
-                    Get.toNamed(Routs.mycartScreen);
+                    Get.toNamed(Routs.cartScreen);
                   }),
                 ),
                 SizedBox(height: 20),

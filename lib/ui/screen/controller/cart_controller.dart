@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AddToCartController extends GetxController {
@@ -48,6 +49,15 @@ class AddToCartController extends GetxController {
     }
   }
   void removeItem(int index) {
-    cartItems.removeAt(index);
+    Get.defaultDialog(
+        title: "Remove Item",
+        middleText: "Are you sure you want to remove this item?",
+        actions: [
+          TextButton(onPressed: (){ cartItems.removeAt(index);Get.back();}, child: Text('Delete')),
+          TextButton(onPressed: (){Get.back();}, child: Text('Cancel')),
+
+
+        ]
+    );
   }
 }

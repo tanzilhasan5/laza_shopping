@@ -4,8 +4,8 @@ import 'package:laza_shopping/ui/widgets/MyCardWidgets/custom_Row_use_delevery_a
 import 'package:laza_shopping/ui/widgets/MyCardWidgets/my_cart_widgets.dart';
 
 
-class MyCartScreen extends StatelessWidget {
-  MyCartScreen({super.key});
+class CartScreen extends StatelessWidget {
+  CartScreen({super.key});
 
 
 
@@ -15,7 +15,7 @@ class MyCartScreen extends StatelessWidget {
       backgroundColor: const Color(0xffF5F6FA),
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('My Cart'),
+        title: const Text(' Cart'),
         backgroundColor: Colors.white,
       ),
 

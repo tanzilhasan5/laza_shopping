@@ -18,7 +18,7 @@ class FilaScreen extends StatelessWidget {
             trailing: CircleAvatar(
               child: InkWell(
                   onTap: (){
-                    Get.toNamed(Routs.mycartScreen);
+                    Get.toNamed(Routs.cartScreen);
                   },
                   child: SvgPicture.asset('assets/icon/Bag.svg')),
             ),

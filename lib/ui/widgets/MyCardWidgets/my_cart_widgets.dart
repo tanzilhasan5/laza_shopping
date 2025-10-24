@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../utils/appColor.dart';
-import '../../screen/controller/my_cart_controller.dart';
+import '../../screen/controller/cart_controller.dart';
 class MyCartList extends StatelessWidget {
 
   const MyCartList({super.key});
@@ -131,7 +131,9 @@ class MyCartList extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(20),
                               ),
                               child: InkWell(
-                                onTap: () => controller.removeItem(index),
+                                onTap: () {
+                                  controller.removeItem(index);
+                                },
                                 child: Center(
                                   child: Icon(Icons.delete_outline,size: 18,
                                       color: Colors.grey),
