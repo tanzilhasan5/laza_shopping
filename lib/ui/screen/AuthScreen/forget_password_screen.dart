@@ -5,6 +5,7 @@ import 'package:laza_shopping/ui/widgets/CustomAuthWidgets/custom_Button.dart';
 import 'package:laza_shopping/ui/widgets/CustomAuthWidgets/custom_textfield.dart';
 import 'package:laza_shopping/utils/appColor.dart';
 
+import '../../../Controller/authController.dart';
 import '../../../routs/routs.dart';
 
 class ForgetPasswordScreen extends StatefulWidget {
@@ -16,6 +17,8 @@ class ForgetPasswordScreen extends StatefulWidget {
 }
 
 class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
+  final TextEditingController _forgetpassword =TextEditingController();
+  final AuthController _authController = Get.put(AuthController());
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -39,12 +42,14 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                 SvgPicture.asset('assets/image/loginobject.svg'),
                 SizedBox(height:80),
                 CustomTextField(
-                  hintText: 'Enter your email',
-                  labelText:'Enter your email' ,
+                  controller:_forgetpassword ,
+                  hintText: 'UserName',
+                  labelText:'Enter your User Name' ,
                   validator:(value){
                     if (value == null || value.isEmpty) {
-                      return 'Email cannot be empty';
-                    } else if (!value.contains('@')) {
+                      return 'UserName cannot be empty';
+                    }
+                    /*else if (!value.contains('@')) {
                       return 'Email must contain @';
                     }  else if (!value.contains('gmail')) {
                       return 'Email must contain gmail (gmail)';
@@ -54,7 +59,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                     }
                     else if (!value.contains('com')) {
                       return 'Email must contain com (com)';
-                    }else{
+                    }*/else{
                       return null;
                     }
 
@@ -63,13 +68,19 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                 SizedBox(height: 80,),
                 Text('Please write your email to receive a\n confirmation code to set a new password.',style: TextStyle(color: AppColor.textColor),),
                SizedBox(height: 10,),
-                CustomButton(onpress: (){
-                  if(_formKey.currentState!.validate()){
-                    Get.toNamed(Routes.Pin_verificationScreen);
-                  }
+                Obx(()=> CustomButton(
+                    isLoading: _authController.isLoading.value,
+                  onpress: (){
 
-                },
-                  title: 'Confirm Mail',
+
+                    if(_formKey.currentState!.validate()){
+                      _authController.forgetpassword(_forgetpassword.text.trim());
+                    }
+
+                  },
+
+                    title: 'Confirm Mail',
+                  ),
                 )
               ],
             ),

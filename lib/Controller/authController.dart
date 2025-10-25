@@ -62,6 +62,29 @@ class AuthController extends GetxController {
     }
     isLoading(false);
   }
+  forgetpassword(userName,) async {
+    isLoading(true);
+    var headers = {'Content-Type': 'application/json'};
+    var response = await ApiClient.postData(
+      ApiConstant.forgetpassword,
+      jsonEncode(
+          {
+            "username":"user1"
+          }
+      ),
+      headers: headers,
+    );
+    if (response.statusCode == 200) {
+      await PrefsHelper.setString(
+        AppConstants.bearerToken,
+        response.body['access'],
+      );
+      Get.offAllNamed(Routes.Pin_verificationScreen);
+    } else {
+      ApiChecker.checkApi(response);
+    }
+    isLoading(false);
+  }
 
 
 

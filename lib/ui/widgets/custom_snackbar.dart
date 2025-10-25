@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 
 
 
-void showCustomSnackBar(String? message, {bool isError = true, bool getXSnackBar = false}) {
+void showCustomSnackBar(String? message, {bool isError = true, bool getXSnackBar = true}) {
   if(message != null && message.isNotEmpty) {
     if(getXSnackBar) {
       Get.showSnackbar(GetSnackBar(
