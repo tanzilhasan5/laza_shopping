@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:laza_shopping/Data/helpers/prefs_helpers.dart';
+import 'package:laza_shopping/Data/utils/app_constants.dart';
 import 'package:laza_shopping/routs/routs.dart';
 
 class CustomDrawer extends StatefulWidget {
@@ -161,7 +163,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       : FontWeight.normal,
                 ),
               ),
-              onTap: () {
+              onTap: ()async{
+                await PrefsHelper.remove(AppConstants.bearerToken);
                 Get.offAllNamed(Routs.login_Screen);
                 setState(() => selectedIndex = 4);
               },

@@ -20,7 +20,7 @@ class CustomPasswordTextField extends StatelessWidget {
     this.lable ='Password',
   }) : super(key: key);
 
-  final PasswordController passwordController = Get.put(PasswordController());
+  final AuthController passwordController = Get.put(AuthController());
 
   String? _validate(String? value) {
     if (value == null || value.isEmpty) {
@@ -72,26 +72,22 @@ class CustomPasswordTextField extends StatelessWidget {
       InputDecoration(
         hintText: hint,hintStyle: TextStyle(color: AppColor.textColor,fontSize: 11.95),
        labelText: lable, labelStyle: TextStyle(color: Colors.black,fontSize: 11.95),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
+        enabledBorder: UnderlineInputBorder(
           borderSide: BorderSide(
             color: AppColor.backgroundTextfield,  // Border color when not focused
             width: 2,          // Border width when not focused
           ),),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8.95),
+        border: UnderlineInputBorder(
           borderSide: BorderSide(color:AppColor.backgroundTextfield, width: 2),
         ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
+        focusedBorder: UnderlineInputBorder(
           borderSide: BorderSide(color: AppColor.backgroundTextfield, width:2),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
           borderSide: BorderSide(color: Colors.red, width: 2),
         ),
-        focusedErrorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
+        focusedErrorBorder: UnderlineInputBorder(
           borderSide: BorderSide(color: AppColor.backgroundTextfield, width: 0),
         ),
 

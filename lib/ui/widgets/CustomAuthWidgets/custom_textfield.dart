@@ -36,17 +36,15 @@ class CustomTextField extends StatelessWidget {
           // suffixText: suffixText,suffixStyle: TextStyle(color: AppColor.textColor,fontSize: 11.95),
           prefixIcon: prefixIcon,prefixIconColor: AppColor.textColor,
           suffixIcon:suffixIcon,suffixIconColor: AppColor.textColor,
-          enabledBorder: OutlineInputBorder(
+          enabledBorder: UnderlineInputBorder(
 
-            borderRadius: BorderRadius.circular(8),
 
             borderSide: BorderSide(
               color: AppColor.backgroundTextfield,
             ),
           ),
           // Focused border
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8),
+          focusedBorder: UnderlineInputBorder(
             borderSide: BorderSide(
               color: AppColor.backgroundTextfield,  // Border color when focused
               width: 2,          // Border width when focused
@@ -57,7 +55,7 @@ class CustomTextField extends StatelessWidget {
             borderRadius: BorderRadius.circular(8),
             borderSide: BorderSide(color: Colors.red, width: 2),
           ),
-          border: OutlineInputBorder(
+          border: UnderlineInputBorder(
             borderRadius: BorderRadius.circular(8.95),
           ),
       ),
