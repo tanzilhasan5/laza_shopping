@@ -16,7 +16,7 @@ import 'package:laza_shopping/ui/screen/ReviewScreen/review_Screen.dart';
 import 'package:laza_shopping/ui/screen/WishListScreen/WishListScreen.dart';
 import 'package:laza_shopping/ui/screen/spalish_screen.dart';
 import 'package:laza_shopping/ui/widgets/CustomDrawerWidgets/Account_Information/accountInformation.dart';
-class Routs{
+class Routes{
   static String spalish_Screen='/';
   static String login_Screen='/login_Screen';
 
@@ -39,20 +39,20 @@ class Routs{
 
 }
 List<GetPage> pages=[
-  GetPage(name: Routs.spalish_Screen, page: ()=>SpalishScreen()),
-  GetPage(name: Routs.login_Screen, page: ()=>LoginScreen()),
-  GetPage(name: Routs.signup_Screen, page: ()=>SignUpScreen()),
-  GetPage(name: Routs.forgetPasswordScreen, page: ()=>ForgetPasswordScreen()),
-  GetPage(name: Routs.Pin_verificationScreen, page: ()=>Pin_verification()),
-  GetPage(name: Routs.NewPasswordSetScreen, page: ()=>NewPasswordSetScreen()),
-  GetPage(name: Routs.home_Screen, page: ()=>HomeScreen()),
-  GetPage(name: Routs.main_buttom_naver, page: ()=>MainButtomNavber()),
-  GetPage(name: Routs.ProductViewScreen, page: ()=>ProductViewScreen()),
-  GetPage(name: Routs.reviewScreen, page: ()=>ReviewScreen()),
-  GetPage(name: Routs.addreviewScreen, page: ()=>AddReviewScreen()),
-  GetPage(name: Routs.cartScreen, page: ()=>CartScreen()),
-  GetPage(name: Routs.addressScreen, page: ()=>AddressScreen()),
-  GetPage(name: Routs.accountInformationScreen, page: ()=>AccountInformation()),
-  GetPage(name: Routs.wishListScreen, page: ()=>WishListScreen()),
-  GetPage(name: Routs.my_cart_Screen, page: ()=>MyCartScreen()),
+  GetPage(name: Routes.spalish_Screen, page: ()=>SpalishScreen()),
+  GetPage(name: Routes.login_Screen, page: ()=>LoginScreen()),
+  GetPage(name: Routes.signup_Screen, page: ()=>SignUpScreen()),
+  GetPage(name: Routes.forgetPasswordScreen, page: ()=>ForgetPasswordScreen()),
+  GetPage(name: Routes.Pin_verificationScreen, page: ()=>Pin_verification()),
+  GetPage(name: Routes.NewPasswordSetScreen, page: ()=>NewPasswordSetScreen()),
+  GetPage(name: Routes.home_Screen, page: ()=>HomeScreen()),
+  GetPage(name: Routes.main_buttom_naver, page: ()=>MainButtomNavber()),
+  GetPage(name: Routes.ProductViewScreen, page: ()=>ProductViewScreen()),
+  GetPage(name: Routes.reviewScreen, page: ()=>ReviewScreen()),
+  GetPage(name: Routes.addreviewScreen, page: ()=>AddReviewScreen()),
+  GetPage(name: Routes.cartScreen, page: ()=>CartScreen()),
+  GetPage(name: Routes.addressScreen, page: ()=>AddressScreen()),
+  GetPage(name: Routes.accountInformationScreen, page: ()=>AccountInformation()),
+  GetPage(name: Routes.wishListScreen, page: ()=>WishListScreen()),
+  GetPage(name: Routes.my_cart_Screen, page: ()=>MyCartScreen()),
 ];

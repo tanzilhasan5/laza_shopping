@@ -76,7 +76,7 @@ class ReviewScreen extends StatelessWidget {
                        ),
                        InkWell(
                          onTap: (){
-                           Get.toNamed(Routs.addreviewScreen);
+                           Get.toNamed(Routes.addreviewScreen);
                          },
                          child: Container(
                            height: 35,

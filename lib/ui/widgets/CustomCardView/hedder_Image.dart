@@ -32,7 +32,7 @@ class HeaderImage extends StatelessWidget {
                   backgroundColor: AppColor.backgroundTextfield,
                   child: IconButton(
                     onPressed: () {
-                      Get.toNamed(Routs.main_buttom_naver);
+                      Get.toNamed(Routes.main_buttom_naver);
                     },
                     icon: Icon(Icons.arrow_back),
                   ),
@@ -41,7 +41,7 @@ class HeaderImage extends StatelessWidget {
                     backgroundColor: AppColor.backgroundTextfield,
                     child: InkWell(
                       onTap: () {
-                        Get.toNamed(Routs.home_Screen);
+                        Get.toNamed(Routes.home_Screen);
                       },
                       child: SvgPicture.asset('assets/icon/Bag.svg'),
                     ),
@@ -50,49 +50,6 @@ class HeaderImage extends StatelessWidget {
             ),
           ),
         ),
-        /*Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Mens  Printed Pullover Hoodie',
-                  style: TextStyle(
-                    color: AppColor.textColor,
-                    fontSize: 13,
-                  ),
-                ),
-                Text(
-                  'Nike Club Fleece',
-                  style: const TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ],
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Price',
-                  style:  TextStyle(
-                    color: AppColor.textColor,
-                    fontSize: 13,
-                  ),
-                ),
-                Text(
-                  '\$120',
-                  style: const TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),*/
       ],
     );
   }

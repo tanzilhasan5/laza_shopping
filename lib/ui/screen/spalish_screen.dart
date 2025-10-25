@@ -26,9 +26,9 @@ class _SpalishScreenState extends State<SpalishScreen> {
       var token = await PrefsHelper.getString(AppConstants.bearerToken);
       debugPrint("issue token : $token");
       if(token.isNotEmpty){
-        Get.offAllNamed(Routs.main_buttom_naver);
+        Get.offAllNamed(Routes.main_buttom_naver);
       }else{
-        Get.offAllNamed(Routs.login_Screen);
+        Get.offAllNamed(Routes.login_Screen);
       }
 
     });

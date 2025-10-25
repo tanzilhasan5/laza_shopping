@@ -52,7 +52,7 @@ class _CustomDeleveryAndPaymentState extends State<CustomDeleveryAndPayment> {
                 ),
                 InkWell(
                   onTap: (){
-                    Get.toNamed(Routs.addressScreen);
+                    Get.toNamed(Routes.addressScreen);
                   },
                     child: const Icon(Icons.chevron_right)),
               ],
@@ -147,7 +147,7 @@ class _CustomDeleveryAndPaymentState extends State<CustomDeleveryAndPayment> {
                 ),
                 InkWell(
                   onTap: (){
-                    Get.toNamed(Routs.my_cart_Screen);
+                    Get.toNamed(Routes.my_cart_Screen);
                   },
                     child: const Icon(Icons.chevron_right)),
               ],

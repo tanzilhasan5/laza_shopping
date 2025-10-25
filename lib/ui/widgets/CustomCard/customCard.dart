@@ -191,7 +191,7 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Get.toNamed(Routs.ProductViewScreen),
+      onTap: () => Get.toNamed(Routes.ProductViewScreen),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Router;
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:laza_shopping/ui/widgets/CustomAuthWidgets/custom_Button.dart';
@@ -64,7 +64,7 @@ class _NewPasswordSetScreenState extends State<NewPasswordSetScreen> {
                 CustomButton(
                   onpress: () {
                     if (_formKey.currentState!.validate()) {
-                      Get.toNamed(Routs.login_Screen);
+                      Get.toNamed(Routes.login_Screen);
                     }
                   },
                   title: 'Reset Password',

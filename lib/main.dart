@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: Routs.spalish_Screen,
+      initialRoute: Routes.spalish_Screen,
       getPages: pages,
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,

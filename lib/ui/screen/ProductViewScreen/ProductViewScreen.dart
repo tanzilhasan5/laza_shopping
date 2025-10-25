@@ -74,7 +74,7 @@ class _ProductViewScreenState extends State<ProductViewScreen> {
                   lefttitle: 'Review',
                   righttitle: 'View All',
                   ontap: () {
-                    Get.toNamed(Routs.reviewScreen);
+                    Get.toNamed(Routes.reviewScreen);
                   },
                 ),
                 SizedBox(height: 15),
@@ -107,7 +107,7 @@ class _ProductViewScreenState extends State<ProductViewScreen> {
                 SizedBox(height: 10),
                 Center(
                   child: CustomButton(title: 'Add to Cart', onpress: () {
-                    Get.toNamed(Routs.cartScreen);
+                    Get.toNamed(Routes.cartScreen);
                   }),
                 ),
                 SizedBox(height: 20),

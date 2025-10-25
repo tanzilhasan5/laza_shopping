@@ -22,7 +22,7 @@ class WishListScreen extends StatelessWidget {
             trailing: CircleAvatar(
               child: InkWell(
                   onTap: (){
-                    Get.toNamed(Routs.cartScreen);
+                    Get.toNamed(Routes.cartScreen);
                   },
                   child: SvgPicture.asset('assets/icon/Bag.svg')),
             ),
@@ -114,7 +114,7 @@ class WishlistCard extends StatelessWidget {
     final WishlistController wishlistController = Get.find<WishlistController>();
 
     return InkWell(
-      onTap: () => Get.toNamed(Routs.ProductViewScreen),
+      onTap: () => Get.toNamed(Routes.ProductViewScreen),
       child:
       Column(
         crossAxisAlignment: CrossAxisAlignment.start,

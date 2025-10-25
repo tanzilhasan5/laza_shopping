@@ -66,7 +66,7 @@ class _Pin_verificationState extends State<Pin_verification> {
               CustomButton(
                 onpress: () {
                   if (_formKey.currentState!.validate()) {
-                    Get.toNamed(Routs.NewPasswordSetScreen);
+                    Get.toNamed(Routes.NewPasswordSetScreen);
                   }
                 },
                 title: 'Confirm Code',

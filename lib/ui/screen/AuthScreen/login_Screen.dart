@@ -74,7 +74,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: [
                     InkWell(
                       onTap: (){
-                        Get.toNamed(Routs.forgetPasswordScreen);
+                       Get.toNamed(Routes.forgetPasswordScreen);
                       },
                       child: Text(
                         'Forgot password?',
@@ -109,7 +109,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   text: 'Dont have an account  ',
                   title: 'Sign Up',
                   ontap: () {
-                    Get.toNamed(Routs.signup_Screen);
+                    Get.toNamed(Routes.signup_Screen);
                   },
                 ),
               ],

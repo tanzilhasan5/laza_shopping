@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
               },
               rightIcon: 'assets/icon/Bag.svg',
               rightonPress: (){
-                Get.toNamed(Routs.cartScreen);
+                Get.toNamed(Routes.cartScreen);
               },
             )),
         body:

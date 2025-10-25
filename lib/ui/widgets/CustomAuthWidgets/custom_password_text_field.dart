@@ -83,8 +83,7 @@ class CustomPasswordTextField extends StatelessWidget {
         focusedBorder: UnderlineInputBorder(
           borderSide: BorderSide(color: AppColor.backgroundTextfield, width:2),
         ),
-        errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
+        errorBorder: UnderlineInputBorder(
           borderSide: BorderSide(color: Colors.red, width: 2),
         ),
         focusedErrorBorder: UnderlineInputBorder(

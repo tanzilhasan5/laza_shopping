@@ -57,7 +57,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 ),
               ),
               onTap: () {
-                Get.toNamed(Routs.accountInformationScreen);
+                Get.toNamed(Routes.accountInformationScreen);
                 setState(() => selectedIndex = 0);
               },
             ),
@@ -165,7 +165,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
               ),
               onTap: ()async{
                 await PrefsHelper.remove(AppConstants.bearerToken);
-                Get.offAllNamed(Routs.login_Screen);
+                Get.offAllNamed(Routes.login_Screen);
                 setState(() => selectedIndex = 4);
               },
             ),

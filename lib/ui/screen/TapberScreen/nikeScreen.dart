@@ -19,7 +19,7 @@ class NikeScreen extends StatelessWidget {
           title: SvgPicture.asset('assets/brand_logo/nike.svg'),
           trailing: CircleAvatar(
             child: InkWell(
-              onTap: (){Get.toNamed(Routs.cartScreen);},
+              onTap: (){Get.toNamed(Routes.cartScreen);},
                 child: SvgPicture.asset('assets/icon/Bag.svg')),
           ),
         ),

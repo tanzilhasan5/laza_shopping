@@ -31,12 +31,39 @@ class AuthController extends GetxController {
         AppConstants.bearerToken,
         response.body['access'],
       );
-      Get.offAllNamed(Routs.main_buttom_naver);
+      Get.offAllNamed(Routes.main_buttom_naver);
     } else {
       ApiChecker.checkApi(response);
     }
     isLoading(false);
   }
+
+  signUp(firstName, userName, password,email) async {
+    isLoading(true);
+    var headers = {'Content-Type': 'application/json'};
+    var response = await ApiClient.postData(
+      ApiConstant.signup,
+      jsonEncode({
+        "first_name":firstName,
+        "email":email,
+        "username": userName,
+        "password":password,
+      }),
+      headers: headers,
+    );
+    if (response.statusCode == 200) {
+      await PrefsHelper.setString(
+        AppConstants.bearerToken,
+        response.body['access'],
+      );
+      Get.offAllNamed(Routes.main_buttom_naver);
+    } else {
+      ApiChecker.checkApi(response);
+    }
+    isLoading(false);
+  }
+
+
 
 
 }

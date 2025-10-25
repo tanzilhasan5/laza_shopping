@@ -5,6 +5,7 @@ import 'package:laza_shopping/ui/widgets/CustomAuthWidgets/custom_Button.dart';
 import 'package:laza_shopping/ui/widgets/CustomAuthWidgets/custom_ReachText.dart';
 import 'package:laza_shopping/ui/widgets/CustomAuthWidgets/custom_password_text_field.dart';
 
+import '../../../Controller/authController.dart';
 import '../../../routs/routs.dart';
 import '../../widgets/CustomAuthWidgets/custom_textfield.dart';
 
@@ -18,9 +19,10 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passWordController = TextEditingController();
-  final TextEditingController _fristNameController = TextEditingController();
-  final TextEditingController _lastNameController = TextEditingController();
+  final TextEditingController _userNameController = TextEditingController();
+  final TextEditingController _firstNameController = TextEditingController();
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final AuthController _authController = Get.put(AuthController());
 
   @override
   Widget build(BuildContext context) {
@@ -43,31 +45,36 @@ class _SignUpScreenState extends State<SignUpScreen> {
               CustomTextField(
                 validator: (value){
                   if (value == null || value.isEmpty) {
-                    return 'Please enter your password';
+                    return 'Please enter your First';
                   }
                 },
                 hintText: 'FirstName',
                 labelText: 'FirstName',
-                controller: _fristNameController,
+                controller: _firstNameController,
               ),
               SizedBox(height: 10),
               CustomTextField(
                 validator: (value){
                   if (value == null || value.isEmpty) {
-                    return 'Please enter your password';
+                    return 'Please enter your UserName';
                   }
                 },
-                controller: _lastNameController,
-                hintText: 'LastName',
-                labelText: 'LastName',
-
-
+                hintText: 'UserName',
+                labelText: 'UserName',
+                controller: _userNameController,
+              ),
+              SizedBox(height: 10),
+              CustomPasswordTextField(
+                hint: 'Password',
+                lable: 'Password',
+                validatorType: ValidatorType.signup,
+                controller: _passWordController,
               ),
               SizedBox(height: 10),
               CustomTextField(
                 controller: _emailController,
-                hintText: 'email',
-                labelText: 'email',
+                hintText: 'Email',
+                labelText: ' Email Address',
                 validator:(value){
                   if (value == null || value.isEmpty) {
                     return 'Email cannot be empty';
@@ -87,20 +94,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
                 },
               ),
-              SizedBox(height: 10),
-              CustomPasswordTextField(
-                hint: 'Password',
-                lable: 'Password',
-                validatorType: ValidatorType.signup,
-                controller: _passWordController,
-              ),
               SizedBox(height: 30),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   InkWell(
                     onTap: () {
-                      Get.toNamed(Routs.forgetPasswordScreen);
+                      Get.toNamed(Routes.forgetPasswordScreen);
                     },
                     child: Text(
                       'Forgot password?',
@@ -122,16 +122,26 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 text: 'Already have an account  ',
                 title: 'Login',
                 ontap: () {
-                  Navigator.pushNamed(context, Routs.login_Screen);
+                  Navigator.pushNamed(context, Routes.login_Screen);
                 },
               ),
               SizedBox(height: 25),
-              CustomButton(title: 'Sign Up', onpress: () {
-                if(_formKey.currentState!.validate()){
+              Obx(()=>
+                  CustomButton(title: 'SignUp',
+                      isLoading: _authController.isLoading.value,
+                      onpress: () {
+                        if (_formKey.currentState!.validate()) {
+                          _authController.signUp(
+                            _firstNameController.text.trim(),
+                            _userNameController.text.trim(),
+                            _emailController.text.trim(),
+                            _passWordController.text,
+                          );
 
-                }
+                        }
 
-              }),
+                      }),
+              ),
             ],
           ),
         ),
