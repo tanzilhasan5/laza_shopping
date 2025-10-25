@@ -38,7 +38,7 @@ class AuthController extends GetxController {
     isLoading(false);
   }
 
-  signUp(firstName, userName, password,email) async {
+  signUp(firstName, userName, password, email,) async {
     isLoading(true);
     var headers = {'Content-Type': 'application/json'};
     var response = await ApiClient.postData(
