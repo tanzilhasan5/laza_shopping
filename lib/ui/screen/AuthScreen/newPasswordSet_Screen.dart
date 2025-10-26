@@ -5,6 +5,7 @@ import 'package:laza_shopping/ui/widgets/CustomAuthWidgets/custom_Button.dart';
 import 'package:laza_shopping/ui/widgets/CustomAuthWidgets/custom_textfield.dart';
 import 'package:laza_shopping/utils/appColor.dart';
 
+import '../../../Controller/authController.dart';
 import '../../../routs/routs.dart';
 
 class NewPasswordSetScreen extends StatefulWidget {
@@ -15,9 +16,9 @@ class NewPasswordSetScreen extends StatefulWidget {
 }
 
 class _NewPasswordSetScreenState extends State<NewPasswordSetScreen> {
-  final TextEditingController _conformPassWordlController =
-      TextEditingController();
-  final TextEditingController _passWordController = TextEditingController();
+  final AuthController _authController = Get.put(AuthController());
+  final TextEditingController _conformPassWordlController = TextEditingController();
+  final TextEditingController _PassWordController = TextEditingController();
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
@@ -40,16 +41,17 @@ class _NewPasswordSetScreenState extends State<NewPasswordSetScreen> {
                 SizedBox(height: 68),
                 SizedBox(height: 80),
                 CustomTextField(
-                  controller: _passWordController,
+                  controller: _PassWordController,
                   hintText: 'Password',
                   labelText: 'Enter your Pasword',
                 ),
                 SizedBox(height: 20),
                 CustomTextField(
+                  controller: _conformPassWordlController,
                   hintText: 'Confirm Password',
                   labelText: 'Enter your Confirm Password',
                   validator: (v) {
-                    if (_passWordController.text != v) {
+                    if (_PassWordController.text != v) {
                       return "Password not match";
                     }
                     return null;
@@ -61,13 +63,15 @@ class _NewPasswordSetScreenState extends State<NewPasswordSetScreen> {
                   style: TextStyle(color: AppColor.textColor),
                 ),
                 SizedBox(height: 10),
-                CustomButton(
-                  onpress: () {
-                    if (_formKey.currentState!.validate()) {
-                      Get.toNamed(Routes.login_Screen);
-                    }
-                  },
-                  title: 'Reset Password',
+                Obx(() => CustomButton(
+                  isLoading: _authController.isLoading.value,
+                    onpress: () {
+                      if (_formKey.currentState!.validate()) {
+                        _authController.reset_password(_PassWordController.text,Get.arguments);
+                      }
+                    },
+                    title: 'reset_password',
+                  ),
                 ),
               ],
             ),

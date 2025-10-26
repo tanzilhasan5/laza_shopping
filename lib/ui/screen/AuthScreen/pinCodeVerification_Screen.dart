@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:laza_shopping/Controller/authController.dart';
 import 'package:laza_shopping/ui/widgets/CustomAuthWidgets/custom_Button.dart';
 import 'package:laza_shopping/ui/widgets/CustomAuthWidgets/otp_resent_timmer.dart';
 import 'package:laza_shopping/utils/appColor.dart';
@@ -17,6 +18,7 @@ class Pin_verification extends StatefulWidget {
 
 class _Pin_verificationState extends State<Pin_verification> {
   final TextEditingController _otpTEController = TextEditingController();
+  final AuthController _authController =AuthController();
   final _formKey = GlobalKey<FormState>();
   final String value = "Test";
 
@@ -34,7 +36,7 @@ class _Pin_verificationState extends State<Pin_verification> {
               SizedBox(height: 105),
               Center(
                 child: Text(
-                  'Forgot Password',
+                  'Pin Code verification',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
                 ),
               ),
@@ -63,13 +65,16 @@ class _Pin_verificationState extends State<Pin_verification> {
                 ),*/
               ),
               const SizedBox(height: 24),
-              CustomButton(
-                onpress: () {
-                  if (_formKey.currentState!.validate()) {
-                    Get.toNamed(Routes.NewPasswordSetScreen);
-                  }
-                },
-                title: 'Confirm Code',
+              Obx(()=>
+                CustomButton(
+                  isLoading: _authController.isLoading.value,
+                  onpress: () {
+                    if (_formKey.currentState!.validate()) {
+                      _authController.otpVerification(_otpTEController.text,Get.arguments);
+                    }
+                  },
+                  title: 'Confirm Code',
+                ),
               ),
             ],
           ),
@@ -80,16 +85,16 @@ class _Pin_verificationState extends State<Pin_verification> {
 
   Widget _buildPinCodeTextField() {
     return PinCodeTextField(
-      length: 4,
+      length: 6,
       animationType: AnimationType.fade,
       keyboardType: TextInputType.number,
       pinTheme: PinTheme(
-        fieldOuterPadding: EdgeInsetsGeometry.symmetric(horizontal: 5),
+        fieldOuterPadding: EdgeInsetsGeometry.symmetric(horizontal: 2),
         inactiveColor: Colors.grey,
         shape: PinCodeFieldShape.box,
         borderRadius: BorderRadius.circular(10),
-        fieldHeight: 88,
-        fieldWidth: 70,
+        fieldHeight: 50,
+        fieldWidth: 50,
         activeFillColor: Colors.white,
         selectedFillColor: Colors.white,
         inactiveFillColor: Colors.white,
@@ -98,7 +103,7 @@ class _Pin_verificationState extends State<Pin_verification> {
       backgroundColor: Colors.transparent,
       enableActiveFill: true,
       validator: (val) {
-        if (val!.length<4) {
+        if (val!.length<6) {
           return 'Enter your Pincode';
         }
         return null;

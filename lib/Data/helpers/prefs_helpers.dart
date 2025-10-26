@@ -3,6 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class PrefsHelper extends GetxService {
 
+
   //===========================> Get Data Form Shared Preference <========================
 
   static Future<String> getString(String key) async {

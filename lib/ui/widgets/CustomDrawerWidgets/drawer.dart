@@ -144,6 +144,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             const Spacer(),
 
             ListTile(
+
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12),
               ),
@@ -164,6 +165,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 ),
               ),
               onTap: ()async{
+
                 await PrefsHelper.remove(AppConstants.bearerToken);
                 Get.offAllNamed(Routes.login_Screen);
                 setState(() => selectedIndex = 4);

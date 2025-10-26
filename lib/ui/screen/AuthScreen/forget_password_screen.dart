@@ -17,7 +17,7 @@ class ForgetPasswordScreen extends StatefulWidget {
 }
 
 class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
-  final TextEditingController _forgetpassword =TextEditingController();
+  final TextEditingController _userName =TextEditingController();
   final AuthController _authController = Get.put(AuthController());
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
@@ -42,7 +42,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                 SvgPicture.asset('assets/image/loginobject.svg'),
                 SizedBox(height:80),
                 CustomTextField(
-                  controller:_forgetpassword ,
+                  controller:_userName ,
                   hintText: 'UserName',
                   labelText:'Enter your User Name' ,
                   validator:(value){
@@ -74,12 +74,12 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
 
 
                     if(_formKey.currentState!.validate()){
-                      _authController.forgetpassword(_forgetpassword.text.trim());
+                      _authController.forgetpassword(_userName.text.trim());
                     }
 
                   },
 
-                    title: 'Confirm Mail',
+                    title: 'Confirm UserName',
                   ),
                 )
               ],

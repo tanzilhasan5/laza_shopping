@@ -24,8 +24,7 @@ class _MainButtomNavberState extends State<MainButtomNavber> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: scaffoldKey,
-      drawer: CustomDrawer(),
+      key: scaffoldKey, drawer: CustomDrawer(),
       body: _screen[_slectedIndex],
       bottomNavigationBar: NavigationBar(
         selectedIndex: _slectedIndex,
