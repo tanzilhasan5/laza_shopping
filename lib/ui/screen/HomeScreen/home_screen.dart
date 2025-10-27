@@ -73,11 +73,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 ///<.....Chose Brand....>
                 CustomTabBar(),
                 SizedBox(height: 15,),
-                CustomListTile(
+              /*  CustomListTile(
                   lefttitle: 'New Arraival',
                   righttitle: 'View All',
                   ontap: (){},
-                ),
+                ),*/
                 SizedBox(height: 15,),
                 ///<.....New Arraival....>
                 CustomCard()

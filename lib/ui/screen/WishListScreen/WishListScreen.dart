@@ -4,15 +4,18 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:laza_shopping/routs/routs.dart';
 
+import '../../../Controller/peoduct_controller.dart';
+import '../../../Data/models/productMode.dart';
 import '../../../utils/appColor.dart';
 import '../../widgets/CustomCard/customCard.dart';
 import '../../../Controller/wishlistController.dart';
 
 class WishListScreen extends StatelessWidget {
-  const WishListScreen({super.key});
+  final ProductController productController = Get.put(ProductController());
+  final WishlistController wishlistController = Get.put(WishlistController());
   @override
   Widget build(BuildContext context) {
-    final WishlistController wishlistController = Get.find<WishlistController>();
+
     return
       Scaffold(
         appBar: AppBar(
@@ -90,8 +93,13 @@ class WishListScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(12),
                   itemCount: wishlistItems.length,
                   itemBuilder: (context, index) {
-                    final item = wishlistItems[index];
-                    return WishlistCard(item: item);
+                    final product =productController.productList[index];
+                    final isFav = wishlistController.isInWishlist(product.name ??'');
+                   return WishlistCard(
+                       product: product,
+                       isFav: isFav,
+                       wishlistController: wishlistController
+                   );
                   },
                 );
               }),
@@ -105,18 +113,22 @@ class WishListScreen extends StatelessWidget {
 
 
 class WishlistCard extends StatelessWidget {
-  final Map<String, String> item;
+  final Data product;
+  final bool isFav;
+  final WishlistController wishlistController;
 
-  const WishlistCard({super.key, required this.item});
+  const WishlistCard({
+    super.key,
+    required this.product,
+    required this.isFav,
+    required this.wishlistController,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final WishlistController wishlistController = Get.find<WishlistController>();
-
     return InkWell(
-      onTap: () => Get.toNamed(Routes.ProductViewScreen),
-      child:
-      Column(
+      onTap: () => Get.toNamed(Routes.ProductViewScreen, arguments: product),
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Stack(
@@ -127,8 +139,12 @@ class WishlistCard extends StatelessWidget {
                   color: AppColor.circleAvatersColor,
                   borderRadius: BorderRadius.circular(12),
                   image: DecorationImage(
-                    image: AssetImage(item['imagePath']!),
-                    fit: BoxFit.fill,
+                    image: NetworkImage(
+                      product.images?.isNotEmpty == true
+                          ? product.images!.first
+                          : 'https://via.placeholder.com/150',
+                    ),
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
@@ -136,12 +152,16 @@ class WishlistCard extends StatelessWidget {
                 top: 8,
                 right: 8,
                 child: Obx(() {
-                  final isFav = wishlistController.isInWishlist(item['title']!);
+                  final isFav = wishlistController.isInWishlist(product.name ?? '',);
                   return InkWell(
-                    onTap: () => wishlistController.toggleWishlist(item),
+                    onTap: () => wishlistController.toggleWishlist({
+                      "title": product.name ?? "",
+                      "price": product.price?.toString() ?? "",
+                      "imagePath": product.images?.toString() ??"",
+                    }),
                     child: Icon(
                       isFav ? Icons.favorite : Icons.favorite_border,
-                      color: isFav ? Colors.red : Colors.white,
+                      color: isFav ? Colors.red : AppColor.textColor,
                     ),
                   );
                 }),
@@ -150,15 +170,15 @@ class WishlistCard extends StatelessWidget {
           ),
           const SizedBox(height: 5),
           Text(
-            item['title']!,
+            product.name ?? '',
             style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w500),
           ),
           Text(
-            item['downtext']!,
+            product.category ?? '',
             style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w500),
           ),
           Text(
-            '\$${item['price']}',
+            '\$${product.price ?? 0}',
             style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
           ),
         ],

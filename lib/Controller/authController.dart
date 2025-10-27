@@ -8,6 +8,7 @@ import 'package:laza_shopping/Data/services/api_constant.dart';
 import 'package:laza_shopping/Data/utils/app_constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../Data/models/productMode.dart';
 import '../routs/routs.dart';
 
 class AuthController extends GetxController {
@@ -132,38 +133,6 @@ class AuthController extends GetxController {
     }
     isLoading(false);
   }
-  /*Future<void> getShopingproducts() async {
-    try {
-      isLoading.value = true;
-
-      // Optional: add custom headers if needed
-      final headers = {
-        'Content-Type': 'application/json',
-      };
-      final response = await ApiClient.getData(
-        ApiConstant.shopingproducts,
-        headers: headers,
-      );
-      if (response.statusCode == 200) {
-
-        final data = response.body;
-
-        print(' Products fetched: $data');
-
-        Get.offAllNamed(Routes.main_buttom_naver);
-      } else {
-        ApiChecker.checkApi(response);
-        print(' Failed to fetch products: ${response.statusText}');
-      }
-    } catch (e) {
-      print(' Error fetching products: $e');
-    } finally {
-      isLoading.value = false;
-    }
-  }
-*/
-
-
 
 
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:laza_shopping/ui/screen/ProductViewScreen/ProductViewScreen.dart';
 import 'package:laza_shopping/ui/screen/TapberScreen/filaScreen.dart';
 import 'package:laza_shopping/utils/appColor.dart';
 
