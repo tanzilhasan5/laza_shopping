@@ -6,9 +6,7 @@ import 'package:laza_shopping/Data/services/api_checker.dart';
 import 'package:laza_shopping/Data/services/api_client.dart';
 import 'package:laza_shopping/Data/services/api_constant.dart';
 import 'package:laza_shopping/Data/utils/app_constants.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-import '../Data/models/productMode.dart';
 import '../routs/routs.dart';
 
 class AuthController extends GetxController {

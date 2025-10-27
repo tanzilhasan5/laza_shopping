@@ -1,11 +1,10 @@
-
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:laza_shopping/ui/screen/Addressbook/address_Screen.dart';
 import 'package:laza_shopping/ui/screen/CartScreen/cart_Screen.dart';
 import 'package:laza_shopping/ui/screen/MyCartScreen/my_cart_screen.dart';
 import 'package:laza_shopping/ui/screen/ProductViewScreen/ProductViewScreen.dart';
 import 'package:laza_shopping/ui/screen/ReviewScreen/add_review_Screen.dart';
-import 'package:laza_shopping/ui/screen/MainBottomNavScreen/mainbottomNaver.dart';
+import 'package:laza_shopping/ui/screen/MainBottomNavScreen/main_bottom_nav_bar.dart';
 import 'package:laza_shopping/ui/screen/AuthScreen/forget_password_screen.dart';
 import 'package:laza_shopping/ui/screen/HomeScreen/home_screen.dart';
 import 'package:laza_shopping/ui/screen/AuthScreen/login_Screen.dart';

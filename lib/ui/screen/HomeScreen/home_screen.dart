@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:laza_shopping/Controller/peoduct_controller.dart';
-import 'package:laza_shopping/Data/models/productMode.dart';
 import 'package:laza_shopping/ui/widgets/CustomCard/customCard.dart';
-import 'package:laza_shopping/ui/widgets/CustomCard/customListOfCard.dart';
 import 'package:laza_shopping/ui/widgets/CustomTapber/customTapber.dart';
 import 'package:laza_shopping/ui/widgets/SerchBer/customSearchBer.dart';
 import 'package:laza_shopping/ui/widgets/custom_reuseable_ListTile.dart';
@@ -12,7 +9,6 @@ import 'package:laza_shopping/utils/appColor.dart';
 
 import '../../../routs/routs.dart';
 import '../../widgets/CustomAppberWidget/customAppBer.dart';
-import '../../widgets/CustomDrawerWidgets/drawer.dart';
 final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
 

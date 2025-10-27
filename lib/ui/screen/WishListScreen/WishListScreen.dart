@@ -4,36 +4,45 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:laza_shopping/routs/routs.dart';
 
-import '../../../Controller/peoduct_controller.dart';
-import '../../../Data/models/productMode.dart';
+import '../../../Controller/product_controller.dart';
+import '../../../Data/models/productModel.dart';
 import '../../../utils/appColor.dart';
-import '../../widgets/CustomCard/customCard.dart';
 import '../../../Controller/wishlistController.dart';
 
 class WishListScreen extends StatelessWidget {
   final ProductController productController = Get.put(ProductController());
   final WishlistController wishlistController = Get.put(WishlistController());
+
   @override
   Widget build(BuildContext context) {
-
-    return
-      Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: ListTile(
-            title:Text('WishList',style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500),),
-            trailing: CircleAvatar(
-              child: InkWell(
-                  onTap: (){
-                    Get.toNamed(Routes.cartScreen);
-                  },
-                  child: SvgPicture.asset('assets/icon/Bag.svg')),
-            ),
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: ListTile(
+          title: Text(
+            'WishList',
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+          ),
+          trailing: CircleAvatar(
+            child: InkWell(
+                onTap: () {
+                  Get.toNamed(Routes.cartScreen);
+                },
+                child: SvgPicture.asset('assets/icon/Bag.svg')),
           ),
         ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Obx(() {
+          final wishlistItems = wishlistController.wishlist;
+          final wishlistedProductNames =
+              wishlistItems.map((item) => item['title']).toSet();
+          final wishlistedProducts = productController.productList
+              .where((p) => wishlistedProductNames.contains(p.name))
+              .toList();
+
+          return Column(
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -42,8 +51,9 @@ class WishListScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '365 Items',
-                        style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+                        '${wishlistedProducts.length} Items',
+                        style: TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.w500),
                       ),
                       Text(
                         'Available in stock',
@@ -73,47 +83,40 @@ class WishListScreen extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 10),
-              Obx(() {
-                final wishlistItems = wishlistController.wishlist;
-
-                if (wishlistItems.isEmpty) {
-                  return
-                    Padding(
-                      padding: const EdgeInsets.only(top: 280),
-                      child: Center(child: Text("No favorite items yet")),
-                    );
-                }
-
-                return MasonryGridView.count(
-                  physics: NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 10,
-                  crossAxisSpacing: 10,
-                  padding: const EdgeInsets.all(12),
-                  itemCount: wishlistItems.length,
-                  itemBuilder: (context, index) {
-                    final product =productController.productList[index];
-                    final isFav = wishlistController.isInWishlist(product.name ??'');
-                   return WishlistCard(
-                       product: product,
-                       isFav: isFav,
-                       wishlistController: wishlistController
-                   );
-                  },
-                );
-              }),
-
+              if (wishlistedProducts.isEmpty)
+                const Padding(
+                  padding: EdgeInsets.only(top: 280),
+                  child: Center(child: Text("No favorite items yet")),
+                )
+              else
+                Expanded(
+                  child: MasonryGridView.count(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 10,
+                    crossAxisSpacing: 10,
+                    padding: const EdgeInsets.all(12),
+                    itemCount: wishlistedProducts.length,
+                    itemBuilder: (context, index) {
+                      final product = wishlistedProducts[index];
+                      final isFav =
+                          wishlistController.isInWishlist(product.name ?? '');
+                      return WishlistCard(
+                          product: product,
+                          isFav: isFav,
+                          wishlistController: wishlistController);
+                    },
+                  ),
+                ),
             ],
-          ),
-        ),
-      );
+          );
+        }),
+      ),
+    );
   }
 }
 
-
 class WishlistCard extends StatelessWidget {
-  final Data product;
+  final Product product;
   final bool isFav;
   final WishlistController wishlistController;
 
@@ -152,12 +155,13 @@ class WishlistCard extends StatelessWidget {
                 top: 8,
                 right: 8,
                 child: Obx(() {
-                  final isFav = wishlistController.isInWishlist(product.name ?? '',);
+                  final isFav =
+                      wishlistController.isInWishlist(product.name ?? '');
                   return InkWell(
                     onTap: () => wishlistController.toggleWishlist({
                       "title": product.name ?? "",
                       "price": product.price?.toString() ?? "",
-                      "imagePath": product.images?.toString() ??"",
+                      "imagePath": product.images?.first ?? "",
                     }),
                     child: Icon(
                       isFav ? Icons.favorite : Icons.favorite_border,
@@ -186,5 +190,3 @@ class WishlistCard extends StatelessWidget {
     );
   }
 }
-
-

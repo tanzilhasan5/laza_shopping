@@ -37,12 +37,14 @@ class ProductController extends GetxController {
   }
 }
 */
+/*
 import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:laza_shopping/Data/services/api_checker.dart';
 import 'package:laza_shopping/Data/services/api_client.dart';
 import 'package:laza_shopping/Data/services/api_constant.dart';
 import '../Data/models/productMode.dart';
+import '../Data/models/product_view_mode;.dart';
 
 class ProductController extends GetxController {
   /// Reactive state variables
@@ -73,7 +75,7 @@ class ProductController extends GetxController {
             : response.body;
 
         /// Convert into model
-        final productModel = ShoppingProductModel.fromJson(decoded);
+        final productModel = ProductModel.fromJson(decoded);
 
         /// Update product list
         productList.value = productModel.data ?? [];
@@ -90,4 +92,61 @@ class ProductController extends GetxController {
     }
   }
 }
+*/
+
+import 'dart:convert';
+import 'package:get/get.dart';
+import 'package:laza_shopping/Data/services/api_checker.dart';
+import 'package:laza_shopping/Data/services/api_client.dart';
+import 'package:laza_shopping/Data/services/api_constant.dart';
+
+import '../Data/models/productMode.dart';
+// remove the invalid import line below
+// import '../Data/models/product_view_mode;.dart';
+
+class ProductController extends GetxController {
+  /// Reactive state variables
+  RxBool isLoading = false.obs;
+  RxList<Product> productList = <Product>[].obs; // ✅ use Product from model
+
+  /// Fetch shopping products from API
+  Future<void> getShoppingProducts() async {
+    try {
+      isLoading.value = true;
+
+      final headers = {
+        'Content-Type': 'application/json',
+      };
+
+      /// Make GET request
+      final response = await ApiClient.getData(
+        ApiConstant.shopingproducts,
+        headers: headers,
+      );
+
+      if (response.statusCode == 200) {
+        /// Decode response safely
+        final decoded = response.body is String
+            ? jsonDecode(response.body)
+            : response.body;
+
+        /// Convert into model
+        final productResponse = ProductModel.fromJson(decoded);
+
+        /// Update observable list
+        productList.value = productResponse.data ?? [];
+
+        print('✅ Products fetched successfully: ${productList.length}');
+      } else {
+        ApiChecker.checkApi(response);
+        print('❌ Failed to fetch products: ${response.statusText}');
+      }
+    } catch (e) {
+      print('⚠️ Error fetching products: $e');
+    } finally {
+      isLoading.value = false;
+    }
+  }
+}
+
 

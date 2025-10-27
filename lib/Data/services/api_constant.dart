@@ -1,4 +1,6 @@
 
+import 'dart:ffi';
+
 class ApiConstant{
 
   static String baseUrl="https://e-bazar-latest.onrender.com";
@@ -7,8 +9,10 @@ class ApiConstant{
   static String signup="/auth/signup/";
   static String forgetpassword="/auth/forgetpassword/";
   static String otp(String userName)=>"/auth/vefiry_for_forget/$userName/";
+  static String productView(Int id)=>"/shoping/products/$id/";
   static String reset_password="/auth/reset_password/";
   static String shopingproducts="/shoping/products/";
+  static String brands="/shoping/brands/";
 
 
 }
