@@ -15,6 +15,8 @@ import 'package:laza_shopping/ui/screen/ReviewScreen/review_Screen.dart';
 import 'package:laza_shopping/ui/screen/WishListScreen/WishListScreen.dart';
 import 'package:laza_shopping/ui/screen/spalish_screen.dart';
 import 'package:laza_shopping/ui/widgets/CustomDrawerWidgets/Account_Information/accountInformation.dart';
+
+import '../ui/screen/EditAccountInformation/update_account_Information.dart';
 class Routes{
   static String spalish_Screen='/';
   static String login_Screen='/login_Screen';
@@ -33,6 +35,7 @@ class Routes{
   static String accountInformationScreen='/accountInformationScreen';
   static String wishListScreen='/wishListtScreen';
   static String my_cart_Screen='/mycartscreen';
+  static String editaccount_Information='/editaccount_Information';
 
 
 
@@ -54,4 +57,5 @@ List<GetPage> pages=[
   GetPage(name: Routes.accountInformationScreen, page: ()=>AccountInformation()),
   GetPage(name: Routes.wishListScreen, page: ()=>WishListScreen()),
   GetPage(name: Routes.my_cart_Screen, page: ()=>MyCartScreen()),
+  GetPage(name: Routes.editaccount_Information, page: ()=>UpdateAccountInformation()),
 ];

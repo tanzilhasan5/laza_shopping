@@ -99,7 +99,7 @@ class WishListScreen extends StatelessWidget {
                     itemBuilder: (context, index) {
                       final product = wishlistedProducts[index];
                       final isFav =
-                          wishlistController.isInWishlist(product.name ?? '');
+                          wishlistController.isInWishlist(product.id.toString());
                       return WishlistCard(
                           product: product,
                           isFav: isFav,
@@ -156,12 +156,13 @@ class WishlistCard extends StatelessWidget {
                 right: 8,
                 child: Obx(() {
                   final isFav =
-                      wishlistController.isInWishlist(product.name ?? '');
+                      wishlistController.isInWishlist(product.id.toString());
                   return InkWell(
                     onTap: () => wishlistController.toggleWishlist({
                       "title": product.name ?? "",
                       "price": product.price?.toString() ?? "",
                       "imagePath": product.images?.first ?? "",
+                      "id": product.id.toString(),
                     }),
                     child: Icon(
                       isFav ? Icons.favorite : Icons.favorite_border,

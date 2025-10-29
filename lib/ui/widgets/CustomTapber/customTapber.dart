@@ -349,6 +349,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:laza_shopping/Controller/brands_controller.dart';
+import 'package:laza_shopping/Data/services/api_constant.dart';
 import 'package:laza_shopping/ui/screen/TapberScreen/adidasScreen.dart';
 import 'package:laza_shopping/ui/screen/TapberScreen/nikeScreen.dart';
 import 'package:laza_shopping/ui/screen/TapberScreen/purmaScreen.dart';
@@ -364,9 +365,14 @@ class CustomTabBar extends StatefulWidget {
 
 class _CustomTabBarState extends State<CustomTabBar> {
   int selectedIndex = 0;
-  final BrandsController brandsController = Get.put(BrandsController());
+  final  brandsController = Get.put(BrandController());
+  @override
+  void initState() {
+    brandsController.fetchBrand();
+    // TODO: implement initState
+    super.initState();
+  }
 
-  final String baseUrl = 'https://e-bazar-latest.onrender.com';
 
   void navigateToTabScreen(BuildContext context, String? name) {
     Widget screen;
@@ -398,70 +404,53 @@ class _CustomTabBarState extends State<CustomTabBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(() {
-      if (brandsController.isLoading.value) {
-        return const Center(child: CircularProgressIndicator());
-      }
+    return Obx(()=>SizedBox(
+      height: 50,
+      child: ListView.separated(
+        scrollDirection: Axis.horizontal,
+        itemCount: brandsController.brandList.length,
+        separatorBuilder: (context, index) => const SizedBox(width: 10),
+        itemBuilder: (context, index) {
+          final brand = brandsController.brandList[index];
+          final bool isSelected = index == selectedIndex;
 
-      if (brandsController.brandstList.isEmpty) {
-        return const Center(child: Text("No brands available"));
-      }
+          // Build full image URL safely
+          return
+            TextButton(
+            style: TextButton.styleFrom(
+              backgroundColor: isSelected
+                  ? AppColor.textColor
+                  : AppColor.circleAvatersColor,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+            onPressed: () {
+              setState(() => selectedIndex = index);
+              navigateToTabScreen(context, brand.name);
+            },
+            child: Row(
+              children: [
+                // Handle image or fallback
+              Image.network("${ApiConstant.baseUrl}${brand.brandImage}",
+                  height: 25,
 
-      return SizedBox(
-        height: 50,
-        child: ListView.separated(
-          scrollDirection: Axis.horizontal,
-          itemCount: brandsController.brandstList.length,
-          separatorBuilder: (context, index) => const SizedBox(width: 10),
-          itemBuilder: (context, index) {
-            final brand = brandsController.brandstList[index];
-            final bool isSelected = index == selectedIndex;
-
-            // Build full image URL safely
-            final imageUrl = brand.brandImage != null
-                ? '$baseUrl${brand.brandImage}'
-                : '';
-
-            return TextButton(
-              style: TextButton.styleFrom(
-                backgroundColor: isSelected
-                    ? AppColor.textColor
-                    : AppColor.circleAvatersColor,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
                 ),
-              ),
-              onPressed: () {
-                setState(() => selectedIndex = index);
-                navigateToTabScreen(context, brand.name);
-              },
-              child: Row(
-                children: [
-                  // Handle image or fallback
-                  imageUrl.endsWith('.svg')
-                      ? SvgPicture.network(imageUrl, height: 25)
-                      : Image.network(
-                    imageUrl,
-                    height: 25,
-                    errorBuilder: (context, error, stackTrace) =>
-                    const Icon(Icons.image_not_supported, size: 25),
+                const SizedBox(width: 8),
+                Text(
+                  brand.name ?? '',
+                  style: TextStyle(
+                    color: Colors.black87,
+                    fontWeight:
+                    isSelected ? FontWeight.bold : FontWeight.normal,
                   ),
-                  const SizedBox(width: 8),
-                  Text(
-                    brand.name ?? '',
-                    style: TextStyle(
-                      color: Colors.black87,
-                      fontWeight:
-                      isSelected ? FontWeight.bold : FontWeight.normal,
-                    ),
-                  ),
-                ],
-              ),
-            );
-          },
-        ),
-      );
-    });
+                ),
+              ],
+            ),
+          );
+        },
+      ),
+    ) );
   }
 }
 

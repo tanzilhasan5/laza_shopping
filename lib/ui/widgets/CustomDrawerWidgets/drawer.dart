@@ -5,8 +5,13 @@ import 'package:laza_shopping/Data/helpers/prefs_helpers.dart';
 import 'package:laza_shopping/Data/utils/app_constants.dart';
 import 'package:laza_shopping/routs/routs.dart';
 
+import '../../../Controller/user_Profile_controller.dart';
+
 class CustomDrawer extends StatefulWidget {
-  const CustomDrawer({super.key});
+   CustomDrawer({super.key});
+
+  final UserProfileInformationController userProfileInformationController =
+  Get.put(UserProfileInformationController());
 
   @override
   State<CustomDrawer> createState() => _CustomDrawerState();
@@ -27,10 +32,11 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 child: SvgPicture.asset('assets/icon/menu.svg'),
               ),
             ),
-            ListTile(
-              title: const Text('Person Name'),
-              leading: CircleAvatar(
-                child: SvgPicture.asset('assets/brand_logo/Adidas.svg'),
+            Obx(()=> ListTile(
+                title: const Text('Person Name'),
+                leading: CircleAvatar(
+                  child: SvgPicture.asset('assets/brand_logo/Adidas.svg'),
+                ),
               ),
             ),
             const SizedBox(height: 10),

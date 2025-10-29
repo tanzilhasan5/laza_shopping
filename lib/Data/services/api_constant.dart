@@ -13,6 +13,8 @@ class ApiConstant{
   static String reset_password="/auth/reset_password/";
   static String shopingproducts="/shoping/products/";
   static String brands="/shoping/brands/";
+  static String userProfile="/auth/profile/";
+  static String updateuserProfile="/auth/profile/";
 
 
 }

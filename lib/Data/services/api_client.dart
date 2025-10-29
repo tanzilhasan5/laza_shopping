@@ -76,7 +76,8 @@ class ApiClient extends GetxService {
   static Future<Response> postMultipartData(
       String uri, Map<String, String> body,
       {required List<MultipartBody> multipartBody,
-        Map<String, String>? headers}) async {
+        Map<String, String>? headers}) async
+  {
     try {
       bearerToken = await PrefsHelper.getString(AppConstants.bearerToken);
 
@@ -105,7 +106,7 @@ class ApiClient extends GetxService {
     }
   }
 
-  Future<Response> putData(String uri, dynamic body,
+ static Future<Response> putData(String uri, dynamic body,
       {Map<String, String>? headers}) async {
     bearerToken = await PrefsHelper.getString(AppConstants.bearerToken);
 

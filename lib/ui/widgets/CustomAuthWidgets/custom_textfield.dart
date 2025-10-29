@@ -36,27 +36,23 @@ class CustomTextField extends StatelessWidget {
           // suffixText: suffixText,suffixStyle: TextStyle(color: AppColor.textColor,fontSize: 11.95),
           prefixIcon: prefixIcon,prefixIconColor: AppColor.textColor,
           suffixIcon:suffixIcon,suffixIconColor: AppColor.textColor,
-          enabledBorder: UnderlineInputBorder(
-
-
-            borderSide: BorderSide(
-              color: AppColor.backgroundTextfield,
-            ),
-          ),
-          // Focused border
-          focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(
-              color: AppColor.backgroundTextfield,  // Border color when focused
-              width: 2,          // Border width when focused
-            ),
-          ),
-          errorBorder: UnderlineInputBorder(
-
-
-            borderSide: BorderSide(color: Colors.red, width: 2),
-          ),
-          border: UnderlineInputBorder(
-          ),
+        enabledBorder: UnderlineInputBorder(
+          borderSide: BorderSide(
+            color: AppColor.backgroundTextfield,  // Border color when not focused
+            width: 2,          // Border width when not focused
+          ),),
+        border: UnderlineInputBorder(
+          borderSide: BorderSide(color:AppColor.backgroundTextfield, width: 2),
+        ),
+        focusedBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: AppColor.backgroundTextfield, width:2),
+        ),
+        errorBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: Colors.red, width: 2),
+        ),
+        focusedErrorBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: AppColor.backgroundTextfield, width: 0),
+        ),
       ),
     );
   }
