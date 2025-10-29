@@ -1,6 +1,9 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:laza_shopping/ui/screen/Addressbook/address_Screen.dart';
 import 'package:laza_shopping/ui/screen/CartScreen/cart_Screen.dart';
+import 'package:laza_shopping/ui/screen/DrawerScreen/OrderScreen/order_screen.dart';
+import 'package:laza_shopping/ui/screen/DrawerScreen/Settings/settings_screen.dart';
+import 'package:laza_shopping/ui/screen/DrawerScreen/Settings/terms_of_service.dart';
 import 'package:laza_shopping/ui/screen/MyCartScreen/my_cart_screen.dart';
 import 'package:laza_shopping/ui/screen/ProductViewScreen/ProductViewScreen.dart';
 import 'package:laza_shopping/ui/screen/ReviewScreen/add_review_Screen.dart';
@@ -14,9 +17,9 @@ import 'package:laza_shopping/ui/screen/AuthScreen/signup_Screen.dart';
 import 'package:laza_shopping/ui/screen/ReviewScreen/review_Screen.dart';
 import 'package:laza_shopping/ui/screen/WishListScreen/WishListScreen.dart';
 import 'package:laza_shopping/ui/screen/spalish_screen.dart';
-import 'package:laza_shopping/ui/widgets/CustomDrawerWidgets/Account_Information/accountInformation.dart';
-
-import '../ui/screen/EditAccountInformation/update_account_Information.dart';
+import '../ui/screen/DrawerScreen/Account_Information/accountInformation.dart';
+import '../ui/screen/DrawerScreen/EditAccountInformation/update_account_Information.dart';
+import '../ui/screen/DrawerScreen/Settings/privacy_policy.dart';
 class Routes{
   static String spalish_Screen='/';
   static String login_Screen='/login_Screen';
@@ -36,6 +39,10 @@ class Routes{
   static String wishListScreen='/wishListtScreen';
   static String my_cart_Screen='/mycartscreen';
   static String editaccount_Information='/editaccount_Information';
+  static String orderScreen='/orderScreen';
+  static String setting='/setting';
+  static String termsOfService='/termsOfService';
+  static String privacypolicy='/privacypolicy';
 
 
 
@@ -58,4 +65,8 @@ List<GetPage> pages=[
   GetPage(name: Routes.wishListScreen, page: ()=>WishListScreen()),
   GetPage(name: Routes.my_cart_Screen, page: ()=>MyCartScreen()),
   GetPage(name: Routes.editaccount_Information, page: ()=>UpdateAccountInformation()),
+  GetPage(name: Routes.orderScreen, page: ()=>OrderScreen()),
+  GetPage(name: Routes.setting, page: ()=>SettingScreen()),
+  GetPage(name: Routes.termsOfService, page: ()=>TermsOfServicePage()),
+  GetPage(name: Routes.privacypolicy, page: ()=>PrivacyPolicy()),
 ];

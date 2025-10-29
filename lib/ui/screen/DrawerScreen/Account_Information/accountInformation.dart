@@ -223,7 +223,9 @@ class AccountInformation extends StatelessWidget {
                   minimumSize: const Size(355, 50),
                 ),
                 onPressed: () {
+
                   Get.toNamed(Routes.editaccount_Information);
+
                   // Handle edit button press
                 },
                 child:  Row(
@@ -244,39 +246,6 @@ class AccountInformation extends StatelessWidget {
       ),
     );
   }
-
-  // Helper widget for cleaner UI
-/*  Widget buildInfoRow(String title, String value) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            width: 100,
-            child: Text(
-              '$title:',
-              style: TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.w400,
-                color: AppColor.textColor.withOpacity(0.7),
-              ),
-            ),
-          ),
-          Expanded(
-            child: Text(
-              value,
-              style: const TextStyle(
-                fontSize: 17,
-                fontWeight: FontWeight.w600,
-                color: Colors.black,
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }*/
 
 
 }

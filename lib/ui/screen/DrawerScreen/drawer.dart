@@ -22,6 +22,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
 
   @override
   Widget build(BuildContext context) {
+
+
+
     return Drawer(
       child: Padding(
         padding: const EdgeInsets.all(20),
@@ -32,11 +35,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 child: SvgPicture.asset('assets/icon/menu.svg'),
               ),
             ),
-            Obx(()=> ListTile(
-                title: const Text('Person Name'),
-                leading: CircleAvatar(
-                  child: SvgPicture.asset('assets/brand_logo/Adidas.svg'),
-                ),
+            ListTile(
+              title: const Text('Person Name'),
+              leading: CircleAvatar(
+                child: SvgPicture.asset('assets/brand_logo/Adidas.svg'),
               ),
             ),
             const SizedBox(height: 10),
@@ -92,6 +94,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 ),
               ),
               onTap: () {
+                Get.toNamed(Routes.orderScreen);
                 setState(() => selectedIndex = 1);
               },
             ),
@@ -143,6 +146,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 ),
               ),
               onTap: () {
+                Get.toNamed(Routes.setting);
                 setState(() => selectedIndex = 3);
               },
             ),

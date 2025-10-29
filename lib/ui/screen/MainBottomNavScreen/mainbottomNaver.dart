@@ -4,7 +4,8 @@ import 'package:laza_shopping/ui/screen/CartScreen/cart_Screen.dart';
 import 'package:laza_shopping/ui/screen/HomeScreen/home_screen.dart';
 import 'package:laza_shopping/ui/screen/WishListScreen/WishListScreen.dart';
 
-import '../../widgets/CustomDrawerWidgets/drawer.dart';
+import '../DrawerScreen/drawer.dart';
+
 
 class MainButtomNavber extends StatefulWidget {
   const MainButtomNavber({super.key});
