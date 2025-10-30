@@ -214,32 +214,44 @@ class AccountInformation extends StatelessWidget {
               const SizedBox(height: 20),
 
               // Edit button
+
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                   side: BorderSide(width: 2, color: AppColor.primaryColors),
                   backgroundColor: const Color(0xffF6F2FF),
                   minimumSize: const Size(355, 50),
                 ),
                 onPressed: () {
+                  if (userProfileInformationController.userinformationList.isNotEmpty) {
+                    final item = userProfileInformationController.userinformationList.first;
 
-                  Get.toNamed(Routes.editaccount_Information);
-
-                  // Handle edit button press
+                    Get.toNamed(
+                      Routes.editaccount_Information,
+                      arguments: {
+                        'firstName': item.firstName,
+                        'email': item.email,
+                        'phone': item.phone,
+                        'country': item.country,
+                        'city': item.city,
+                        'address': item.address,
+                        'image': item.image,
+                      },
+                    );
+                  } else {
+                    Get.snackbar("Error", "No profile data found!");
+                  }
                 },
-                child:  Row(
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
+                  children: const [
                     Icon(Icons.edit, color: Colors.black),
                     SizedBox(width: 8),
-                    Text(
-                      'Edit',
-                      style: TextStyle(color: Colors.black),
-                    ),
+                    Text('Edit', style: TextStyle(color: Colors.black)),
                   ],
                 ),
               ),
+
             ],
           ),
         )),

@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
@@ -17,43 +18,39 @@ class CustomCard extends StatefulWidget {
 
 class _CustomCardState extends State<CustomCard> {
   final WishlistController wishlistController = Get.put(WishlistController());
+  final productController = Get.put(ProductController());
 
-  final  productController = Get.put(ProductController());
   @override
   void initState() {
-   productController.fetchProductData();
+    productController.fetchProductData();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-
-    return
-    Obx(()=>
-        productController.isProductLoading.value?
-        Center(child: CircularProgressIndicator(),):
-            MasonryGridView.count(
+    return Obx(() =>
+    productController.isProductLoading.value
+        ? const Center(child: CircularProgressIndicator())
+        : MasonryGridView.count(
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       crossAxisCount: 2,
-      itemCount:productController.productList.length,
+      itemCount: productController.productList.length,
       mainAxisSpacing: 10,
       crossAxisSpacing: 10,
       padding: const EdgeInsets.all(12),
       itemBuilder: (context, index) {
-        final product =   productController.productList[index];
+        final product = productController.productList[index];
         final isFav = wishlistController.isInWishlist(product.id.toString());
         return ProductCard(
-            product: product,
-            isFav: isFav,
-            wishlistController: wishlistController);
+          product: product,
+          isFav: isFav,
+          wishlistController: wishlistController,
+        );
       },
-    )
-
-    );
+    ));
   }
 }
-
 
 class ProductCard extends StatelessWidget {
   final Product product;
@@ -70,22 +67,31 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Get.toNamed(Routes.ProductViewScreen, arguments: product),
+      onTap: () {
+        // ✅ Pass the product data to the next page
+        Get.toNamed(
+          Routes.ProductViewScreen,
+          arguments: product,
+        );
+      },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Stack(
             children: [
-              Container(
-                height: 180,
-                decoration: BoxDecoration(
-                  color: AppColor.circleAvatersColor,
-                  borderRadius: BorderRadius.circular(12),
-                  image: DecorationImage(
-                    image: NetworkImage(
-                      "${ApiConstant.baseUrl}${product.images?[0]}",
+              Hero(
+                tag: 'product_${product.id}', // 👈 for smooth animation
+                child: Container(
+                  height: 180,
+                  decoration: BoxDecoration(
+                    color: AppColor.circleAvatersColor,
+                    borderRadius: BorderRadius.circular(12),
+                    image: DecorationImage(
+                      image: NetworkImage(
+                        "${ApiConstant.baseUrl}${product.images?[0]}",
+                      ),
+                      fit: BoxFit.cover,
                     ),
-                    fit: BoxFit.cover,
                   ),
                 ),
               ),
@@ -128,3 +134,4 @@ class ProductCard extends StatelessWidget {
     );
   }
 }
+

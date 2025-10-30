@@ -1,7 +1,6 @@
 /*
 import 'dart:convert';
 import 'package:get/get.dart';
-import 'package:laza_shopping/Data/models/productMode.dart';
 
 import '../Data/services/api_checker.dart';
 import '../Data/services/api_client.dart';
@@ -45,7 +44,6 @@ import 'package:get/get.dart';
 import 'package:laza_shopping/Data/services/api_checker.dart';
 import 'package:laza_shopping/Data/services/api_client.dart';
 import 'package:laza_shopping/Data/services/api_constant.dart';
-import '../Data/models/productMode.dart';
 
 class BrandsController extends GetxController {
   /// Reactive state variables

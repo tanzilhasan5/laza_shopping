@@ -432,10 +432,17 @@ class _CustomTabBarState extends State<CustomTabBar> {
             child: Row(
               children: [
                 // Handle image or fallback
-              Image.network("${ApiConstant.baseUrl}${brand.brandImage}",
+                Image.network(
+                  "${ApiConstant.baseUrl}${brand.brandImage}",
                   height: 25,
-
+                  errorBuilder: (context, error, stackTrace) {
+                    return Image.asset(
+                      'assets/brand_logo/noImage.jpg',
+                     height: 25,
+                    );
+                  },
                 ),
+
                 const SizedBox(width: 8),
                 Text(
                   brand.name ?? '',

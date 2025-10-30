@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:laza_shopping/utils/appColor.dart';
 
 import '../../../../routs/routs.dart';
 
@@ -25,7 +26,7 @@ class SettingScreen extends StatelessWidget {
               },
               child: Row(
                 children: [
-                  SvgPicture.asset("assets/icons/info-empty.svg"),
+                Icon(Icons.info_outline,color: AppColor.primaryColors ),
                   SizedBox(width: 10,),
                   Text("Terms Of Services")
                 ],
@@ -40,7 +41,7 @@ class SettingScreen extends StatelessWidget {
               },
               child: Row(
                 children: [
-                  SvgPicture.asset("assets/icons/security-safe.svg"),
+                  Image.asset("assets/icon/security-safe.png"),
                   SizedBox(width: 10,),
                   Text("Privacy Policy")
                 ],
@@ -51,11 +52,11 @@ class SettingScreen extends StatelessWidget {
 
             InkWell(
               onTap: (){
-                Get.toNamed("/aboutUs_page");
+              /*  Get.toNamed();*/
               },
               child: Row(
                 children: [
-                  SvgPicture.asset("assets/icons/shield-question.svg"),
+                  SvgPicture.asset('assets/icon/shield-question.png'),
                   SizedBox(width: 10,),
                   Text("About Us")
                 ],

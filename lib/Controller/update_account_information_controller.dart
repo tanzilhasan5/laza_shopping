@@ -81,7 +81,6 @@ class UpdateuserProfileController extends GetxController{
     required String country,
     required String city,
     required String address,
-    required String email,
     File? imageFile, // optional image
   }) async
   {
@@ -94,7 +93,6 @@ class UpdateuserProfileController extends GetxController{
         "country": country,
         "city": city,
         "address": address,
-        "email": email,
       };
 
       List<MultipartBody> multipartList = [];
@@ -110,7 +108,10 @@ class UpdateuserProfileController extends GetxController{
       );
 
       if (response.statusCode == 200) {
-        Get.snackbar("Success", "Profile updated successfully!");
+       Get.snackbar(
+           'Update', 'Complite',
+         snackPosition: SnackPosition.BOTTOM,
+       );
         await PrefsHelper.setString(AppConstants.bearerToken, response.body['access']);
         Get.toNamed(Routes.accountInformationScreen); // Update view data
       } else {
