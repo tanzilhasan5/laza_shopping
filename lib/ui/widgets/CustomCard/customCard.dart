@@ -68,7 +68,6 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        // ✅ Pass the product data to the next page
         Get.toNamed(
           Routes.ProductViewScreen,
           arguments: product,
@@ -80,7 +79,7 @@ class ProductCard extends StatelessWidget {
           Stack(
             children: [
               Hero(
-                tag: 'product_${product.id}', // 👈 for smooth animation
+                tag: 'product_${product.id}',
                 child: Container(
                   height: 180,
                   decoration: BoxDecoration(

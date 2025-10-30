@@ -203,7 +203,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       Get.back(); // close the dialog
                     },
                     onCancel: () {
-                      Get.back(); // just close the dialog
+                      Get.back();
                     },
                   );
                 }

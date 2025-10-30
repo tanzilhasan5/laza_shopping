@@ -293,15 +293,15 @@ class CustomReview extends StatelessWidget {
           children: [
             Row(
               children: [
-                const CircleAvatar(
-                  backgroundImage: AssetImage('assets/card_image/card1.png'),
+                CircleAvatar(
+                  backgroundImage: NetworkImage('${ApiConstant.baseUrl}${product.images}'),
                 ),
                 const SizedBox(width: 10),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      'Ronaldo Richards',
+                     Text(
+                      '${product.wishers}',
                       style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w500,

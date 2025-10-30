@@ -15,7 +15,7 @@ class PumaScreen extends StatelessWidget {
       AppBar(
         centerTitle: true,
         title: ListTile(
-          title: SvgPicture.asset('assets/brand_logo/Adidas.svg'),
+          title: SvgPicture.asset('assets/brand_logo/puma-logo 1.svg'),
           trailing: CircleAvatar(
             child: InkWell(
                 onTap: (){
