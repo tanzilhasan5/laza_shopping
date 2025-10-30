@@ -41,7 +41,7 @@ class SettingScreen extends StatelessWidget {
               },
               child: Row(
                 children: [
-                  Image.asset("assets/icon/security-safe.png"),
+                  Icon(Icons.privacy_tip_outlined,color: AppColor.primaryColors ),
                   SizedBox(width: 10,),
                   Text("Privacy Policy")
                 ],
@@ -52,11 +52,11 @@ class SettingScreen extends StatelessWidget {
 
             InkWell(
               onTap: (){
-              /*  Get.toNamed();*/
+                Get.toNamed(Routes.about_us);
               },
               child: Row(
                 children: [
-                  SvgPicture.asset('assets/icon/shield-question.png'),
+                  Icon(Icons.privacy_tip_sharp,color: AppColor.primaryColors ),
                   SizedBox(width: 10,),
                   Text("About Us")
                 ],

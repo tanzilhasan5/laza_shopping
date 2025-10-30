@@ -1,44 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../Controller/terms_of_service_controller.dart';
+import '../../../../../Controller/about_Controller.dart';
 
 
 
 
-class TermsOfServicePage extends StatelessWidget {
-  TermsOfServicePage({super.key});
+class AboutUs extends StatelessWidget {
+  AboutUs({super.key});
 
-
-  final TermsofServicesController _termsofServicecontroller =
-      Get.put(TermsofServicesController());
-
+  final AboutusController _controller = Get.put(AboutusController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Terms & Conditions',
+          'About Us',
           style: TextStyle(fontWeight: FontWeight.w600),
         ),
         centerTitle: true,
         elevation: 1,
       ),
       body: Obx(() {
-        if (_termsofServicecontroller.isLoading.value) {
+        if (_controller.isLoading.value) {
           return const Center(child: CircularProgressIndicator());
         }
 
-        if (_termsofServicecontroller.termsList.isEmpty) {
-          return const Center(child: Text('No terms found'));
+        if (_controller.aboutUsList.isEmpty) {
+          return const Center(child: Text('No data found'));
         }
 
-        return
-          ListView.builder(
-          itemCount: _termsofServicecontroller.termsList.length,
+        return ListView.builder(
+          itemCount: _controller.aboutUsList.length,
           itemBuilder: (context, index) {
-            final item = _termsofServicecontroller.termsList[index];
+            final item = _controller.aboutUsList[index];
             return Padding(
               padding: const EdgeInsets.only(bottom: 20),
               child: Container(

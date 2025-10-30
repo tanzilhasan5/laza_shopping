@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../Controller/privacy_policy_controller.dart';
+import '../../../../../Controller/privacy_policy_controller.dart';
 
 
 

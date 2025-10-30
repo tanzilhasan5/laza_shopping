@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:laza_shopping/Data/helpers/prefs_helpers.dart';
 import 'package:laza_shopping/Data/utils/app_constants.dart';
 import 'package:laza_shopping/routs/routs.dart';
+import 'package:laza_shopping/utils/appColor.dart';
 
 import '../../../Controller/user_Profile_controller.dart';
 
@@ -30,11 +31,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            ListTile(
-              leading: CircleAvatar(
-                child: SvgPicture.asset('assets/icon/menu.svg'),
-              ),
-            ),
+            const SizedBox(height: 20),
+
             ListTile(
               title: const Text('Person Name'),
               leading: CircleAvatar(
@@ -174,12 +172,42 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       : FontWeight.normal,
                 ),
               ),
-              onTap: ()async{
+            /*  onTap: ()async{
+                Get.defaultDialog(
+                  title: "Logout",
+                  middleText: "Are you sure you want to logout?",
+
+
+                );
+
 
                 await PrefsHelper.remove(AppConstants.bearerToken);
                 Get.offAllNamed(Routes.login_Screen);
                 setState(() => selectedIndex = 4);
-              },
+              },*/
+                onTap: () async {
+                  Get.defaultDialog(
+                    buttonColor: AppColor.primaryColors,
+
+                    backgroundColor: Colors.grey,
+                    title: "Logout",
+                    middleText: "Are you sure you want to logout?",
+                    textCancel: "Cancel",
+                    textConfirm: "Logout",
+                    confirmTextColor: Colors.white,
+                    cancelTextColor: Colors.white,
+                    onConfirm: () async {
+                      await PrefsHelper.remove(AppConstants.bearerToken);
+                      Get.offAllNamed(Routes.login_Screen);
+                      setState(() => selectedIndex = 4);
+                      Get.back(); // close the dialog
+                    },
+                    onCancel: () {
+                      Get.back(); // just close the dialog
+                    },
+                  );
+                }
+
             ),
           ],
         ),
