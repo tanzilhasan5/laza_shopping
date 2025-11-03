@@ -37,7 +37,7 @@ class TermsData {
   TermsData.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     heading = json['heading'];
-    description = json['discription']; // note: API spelling is "discription"
+    description = json['discription'];
   }
 
   Map<String, dynamic> toJson() {

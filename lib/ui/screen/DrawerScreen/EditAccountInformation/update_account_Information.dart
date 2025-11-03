@@ -57,34 +57,45 @@ class _UpdateAccountInformationState extends State<UpdateAccountInformation> {
                   child: Stack(
                     clipBehavior: Clip.none,
                     children: [
-                      CircleAvatar(
-                        radius: 40,
-                        backgroundImage: Get.arguments != null &&
-                            Get.arguments['image'] != null
-                            ? NetworkImage(
-                            "${ApiConstant.baseUrl}${Get.arguments['image']}")
-                            : null,
-                        backgroundColor: Colors.grey[300],
+
+                      Container(
+                        height: 80,
+                        width: 80,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(image: _updateuserProfileController.imagePath.isEmpty?
+                          NetworkImage("${ApiConstant.baseUrl}${Get.arguments['image']}"):
+                          FileImage(File(_updateuserProfileController.imagePath.value)),
+                            fit: BoxFit.cover
+                        ),
+
                       ),
+                      ),
+                      
                       Positioned(
-                        left: 23,
-                        top: 61,
+                        bottom: 0,
+                        right: 0,
                         child: InkWell(
-                          onTap: () {
+                          onTap: (){
                             _updateuserProfileController.getImage();
                           },
                           child: Container(
                             height: 30,
-                            width: 32,
+                            width: 30,
                             decoration: BoxDecoration(
-                              color: const Color(0xff9775FA),
-                              border: Border.all(width: 2, color: Colors.white),
                               shape: BoxShape.circle,
+                              color: const Color(0xff9775FA),
                             ),
-                            child: const Icon(Icons.edit, size: 10),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 5),
+                              child: Icon(Icons.edit,
+                              color: Colors.white,),
+                            ),
                           ),
                         ),
                       ),
+           
+
                     ],
                   ),
                 ),
@@ -128,6 +139,7 @@ class _UpdateAccountInformationState extends State<UpdateAccountInformation> {
                   isLoading: _updateuserProfileController.isLoading.value,
                   title: 'Save Address',
                   onpress: () {
+                    Get.back();
                     if (_formKey.currentState!.validate()) {
                       _updateuserProfileController.updateUserInfo(
                         firstName: _fristnameController.text,

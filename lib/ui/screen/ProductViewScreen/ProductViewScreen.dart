@@ -8,6 +8,7 @@ import 'package:laza_shopping/ui/widgets/custom_reuseable_ListTile.dart';
 import 'package:laza_shopping/utils/appColor.dart';
 import '../../../Data/models/productModel.dart';
 import '../../../routs/routs.dart';
+import '../../widgets/Custom_Reviews/custom_Review.dart';
 
 class ProductViewScreen extends StatelessWidget {
   const ProductViewScreen({super.key});
@@ -59,6 +60,20 @@ class ProductViewScreen extends StatelessWidget {
                 ),
 
                 const SizedBox(height: 15),
+                CustomListTile(
+                  lefttitle: product.extraNote ?? 'Product Name',
+                  lefttextStyle: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                    color: AppColor.textColor,
+                  ),
+                  righttitle: 'Price',
+                  righttextStyle: TextStyle(
+                    fontSize: 13,
+                    color: AppColor.textColor,
+                  ),
+                ),
+                const SizedBox(height: 15),
 
                 //  Product name & price
                 CustomListTile(
@@ -78,14 +93,14 @@ class ProductViewScreen extends StatelessWidget {
                 const SizedBox(height: 10),
 
                 //  Category
-                Text(
+               /* Text(
                   product.category ?? 'No Category',
                   style: TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.w400,
                     color: AppColor.textColor,
                   ),
-                ),
+                ),*/
 
                 const SizedBox(height: 15),
 
@@ -280,72 +295,4 @@ class GallerySection extends StatelessWidget {
   }
 }
 
-class CustomReview extends StatelessWidget {
-  final Product product;
-  const CustomReview({super.key, required this.product});
 
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              children: [
-                CircleAvatar(
-                  backgroundImage: NetworkImage('${ApiConstant.baseUrl}${product.images}'),
-                ),
-                const SizedBox(width: 10),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                     Text(
-                      '${product.wishers}',
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    Row(
-                      children: [
-                        const Icon(Icons.access_time_rounded, size: 15),
-                        const SizedBox(width: 5),
-                        Text(
-                          '13 Sep, 2020',
-                          style: TextStyle(
-                            color: AppColor.textColor,
-                            fontSize: 13,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Row(
-                  children: [
-                    Text('4.8', style: TextStyle(fontWeight: FontWeight.w500)),
-                    SizedBox(width: 8),
-                    Text('rating'),
-                  ],
-                ),
-                EasyStarsDisplay(
-                  starSize: 10,
-                  allowHalfRating: true,
-                  initialRating: 4.5,
-                  readOnly: true,
-                )
-              ],
-            ),
-          ],
-        ),
-      ],
-    );
-  }
-}

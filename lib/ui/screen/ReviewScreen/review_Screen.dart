@@ -8,7 +8,8 @@ import '../../../routs/routs.dart';
 import '../../../utils/appColor.dart' show AppColor;
 
 class ReviewScreen extends StatelessWidget {
-  const ReviewScreen({super.key});
+  final int? productId;
+  const ReviewScreen({super.key, this.productId});
 
   @override
   Widget build(BuildContext context) {
@@ -99,7 +100,7 @@ class ReviewScreen extends StatelessWidget {
                      ],
                    ),
               SizedBox(height: 15,),
-              ListOfReview(),
+              ListOfReview(productId:productId.toString(),),
 
               SizedBox(height: 50,),
           

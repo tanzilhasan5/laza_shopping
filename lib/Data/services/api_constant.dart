@@ -18,6 +18,8 @@ class ApiConstant{
   static String terms_condition="/auth/terms";
   static String privacypolicy="/auth/privacy-policy/";
   static String about_us="/auth/about-us/";
+  static String productReview(Int id)=>"/shoping/products/reviews/$id/";
+
 
 
 }

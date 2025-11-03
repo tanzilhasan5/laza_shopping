@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:laza_shopping/Controller/user_Profile_controller.dart';
 
 import '../Data/helpers/prefs_helpers.dart';
 import '../Data/services/api_checker.dart';
@@ -14,66 +15,7 @@ import '../routs/routs.dart';
 class UpdateuserProfileController extends GetxController{
   var isLoading = false.obs;
 
-  /*updateUserProfile(
-      String firstName,
-      String lastName,
-      String email,
-      String phone,
-      String country,
-      String city,
-      String address,
-      File imageFile,
-      ) async
-  {
-    isLoading(true);
-
-    String? token = await PrefsHelper.getString(AppConstants.bearerToken);
-
-    var headers = {
-      'Content-Type': 'application/json',
-   'Authorization': 'Bearer $token',
-    };
-
-    var body = {
-      "first_name": firstName,
-      "email": email,
-      "phone": phone,
-      "country": country,
-      "city": city,
-      "address": address,
-    };
-    List<MultipartBody> multipartList = [];
-
-    if (imageFile != null) {
-      multipartList.add(MultipartBody('image', imageFile));
-    }
-
-    print("=====> API Call: ${ApiConstant.updateuserProfile}");
-    print("Header: $headers");
-    print("=====> API Body: $body");
-
-    var response = await ApiClient.putMultipartData(
-      ApiConstant.updateuserProfile,
-      body,
-      headers: headers, multipartBody: multipartList,
-    );
-
-    print("==========> Response Post Method :------ : ${response.statusCode}");
-    print("=====> API Response: [${response.statusCode}] ${ApiConstant.updateuserProfile}");
-    print(response.body);
-
-    if (response.statusCode == 200) {
-      Get.snackbar("Update", "Complite");
-      if (response.body is Map && response.body['access'] != null) {
-        await PrefsHelper.setString(AppConstants.bearerToken, response.body['access']);
-      }
-      Get.offAllNamed(Routes.main_buttom_naver);
-    } else {
-      ApiChecker.checkApi(response);
-    }
-
-    isLoading(false);
-  }*/
+  final _accountInfoController = Get.put(UserProfileInformationController());
 
   Future<void> updateUserInfo({
     required String firstName,
@@ -81,7 +23,7 @@ class UpdateuserProfileController extends GetxController{
     required String country,
     required String city,
     required String address,
-    File? imageFile, // optional image
+    File? imageFile,
   }) async
   {
     isLoading(true);
@@ -108,12 +50,17 @@ class UpdateuserProfileController extends GetxController{
       );
 
       if (response.statusCode == 200) {
-       Get.snackbar(
-           'Update', 'Complite',
-         snackPosition: SnackPosition.BOTTOM,
-       );
-        await PrefsHelper.setString(AppConstants.bearerToken, response.body['access']);
-        Get.toNamed(Routes.accountInformationScreen); // Update view data
+
+        Get.snackbar(
+          'Update', 'Complite',
+          snackPosition: SnackPosition.BOTTOM,
+        );
+
+        print("success =================>");
+
+         _accountInfoController.fatchAccountInformation();
+
+
       } else {
         ApiChecker.checkApi(response);
       }
