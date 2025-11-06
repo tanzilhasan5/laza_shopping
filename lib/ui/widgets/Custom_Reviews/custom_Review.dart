@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:laza_shopping/Controller/product_review_controller.dart';
-import 'package:laza_shopping/Data/models/ProductReview/product_review_Model.dart' hide Product;
+import 'package:laza_shopping/Data/models/ProductReview/product_review_Model.dart' hide ProductReviewModel;
 
 import '../../../Data/models/productModel.dart';
 import '../../../Data/services/api_constant.dart';

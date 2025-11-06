@@ -43,6 +43,9 @@ dependencies:
   flutter_credit_card: ^4.1.0
   shared_preferences: ^2.5.3
   image_picker: ^1.2.0
+  webview_flutter:
+  webview_flutter_android:
+  webview_flutter_wkwebview:
 
 dev_dependencies:
   flutter_test:

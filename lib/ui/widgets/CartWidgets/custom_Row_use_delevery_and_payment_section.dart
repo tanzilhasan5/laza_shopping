@@ -147,7 +147,7 @@ class _CustomDeleveryAndPaymentState extends State<CustomDeleveryAndPayment> {
                 ),
                 InkWell(
                   onTap: (){
-                    Get.toNamed(Routes.my_cart_Screen);
+                    Get.toNamed(Routes.payment);
                   },
                     child: const Icon(Icons.chevron_right)),
               ],

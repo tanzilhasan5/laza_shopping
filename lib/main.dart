@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:laza_shopping/routs/routs.dart';
 import 'package:laza_shopping/utils/appColor.dart';
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 

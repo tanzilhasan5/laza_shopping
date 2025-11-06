@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import '../../widgets/CardWidgets/cart_widgets.dart';
-import '../../widgets/CardWidgets/custom_Row_use_delevery_and_payment_section.dart';
+import '../../widgets/CartWidgets/cart_widgets.dart';
+import '../../widgets/CartWidgets/custom_Row_use_delevery_and_payment_section.dart';
 class CartScreen extends StatelessWidget {
   CartScreen({super.key});
 

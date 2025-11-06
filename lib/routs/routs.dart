@@ -1,6 +1,7 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:laza_shopping/ui/screen/Addressbook/address_Screen.dart';
 import 'package:laza_shopping/ui/screen/CartScreen/cart_Screen.dart';
+import 'package:laza_shopping/ui/screen/CartScreen/payment.dart';
 import 'package:laza_shopping/ui/screen/DrawerScreen/OrderScreen/order_screen.dart';
 import 'package:laza_shopping/ui/screen/DrawerScreen/Settings/about/about.dart';
 import 'package:laza_shopping/ui/screen/DrawerScreen/Settings/settings_screen.dart';
@@ -45,6 +46,7 @@ class Routes{
   static String termsOfService='/termsOfService';
   static String privacypolicy='/privacypolicy';
   static String about_us='/about_us';
+  static String payment='/payment';
 
 
 
@@ -72,4 +74,5 @@ List<GetPage> pages=[
   GetPage(name: Routes.termsOfService, page: ()=>TermsOfServicePage()),
   GetPage(name: Routes.privacypolicy, page: ()=>PrivacyPolicy()),
   GetPage(name: Routes.about_us, page: ()=>AboutUs()),
+  GetPage(name: Routes.payment, page: ()=>Payment()),
 ];

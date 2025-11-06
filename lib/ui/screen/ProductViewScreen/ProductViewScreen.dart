@@ -93,14 +93,6 @@ class ProductViewScreen extends StatelessWidget {
                 const SizedBox(height: 10),
 
                 //  Category
-               /* Text(
-                  product.category ?? 'No Category',
-                  style: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w400,
-                    color: AppColor.textColor,
-                  ),
-                ),*/
 
                 const SizedBox(height: 15),
 
@@ -134,7 +126,11 @@ class ProductViewScreen extends StatelessWidget {
                 CustomListTile(
                   lefttitle: 'Review',
                   righttitle: 'View All',
-                  ontap: () => Get.toNamed(Routes.reviewScreen),
+                  ontap: (){
+
+
+                    Get.toNamed(Routes.reviewScreen);
+                  },
                 ),
                 const SizedBox(height: 10),
                 CustomReview(product: product),
