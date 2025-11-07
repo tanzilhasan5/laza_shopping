@@ -1,21 +1,22 @@
 
 import 'package:flutter/material.dart';
-import 'package:easy_stars/easy_stars.dart';
 import 'package:get/get.dart';
 import 'package:laza_shopping/Data/services/api_constant.dart';
 import 'package:laza_shopping/ui/widgets/CustomAuthWidgets/custom_Button.dart';
 import 'package:laza_shopping/ui/widgets/custom_reuseable_ListTile.dart';
 import 'package:laza_shopping/utils/appColor.dart';
+import '../../../Controller/cart_controller.dart';
 import '../../../Data/models/productModel.dart';
 import '../../../routs/routs.dart';
 import '../../widgets/Custom_Reviews/custom_Review.dart';
 
 class ProductViewScreen extends StatelessWidget {
-  const ProductViewScreen({super.key});
+  ProductViewScreen({Key? key}) : super(key: key);
+
+  final AddToCartController cartController = Get.put(AddToCartController());
 
   @override
   Widget build(BuildContext context) {
-    //  Get product from previous screen
     final Product product = Get.arguments as Product;
 
     return SafeArea(
@@ -41,7 +42,7 @@ class ProductViewScreen extends StatelessWidget {
                   ],
                 ),
 
-                //  Product Image (Hero transition)
+                // Product Image
                 Hero(
                   tag: 'product_${product.id}',
                   child: Container(
@@ -60,6 +61,8 @@ class ProductViewScreen extends StatelessWidget {
                 ),
 
                 const SizedBox(height: 15),
+
+                // Extra Note
                 CustomListTile(
                   lefttitle: product.extraNote ?? 'Product Name',
                   lefttextStyle: TextStyle(
@@ -75,7 +78,7 @@ class ProductViewScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 15),
 
-                //  Product name & price
+                // Product name & price
                 CustomListTile(
                   lefttitle: product.name ?? 'Product Name',
                   lefttextStyle: TextStyle(
@@ -92,23 +95,19 @@ class ProductViewScreen extends StatelessWidget {
 
                 const SizedBox(height: 10),
 
-                //  Category
-
-                const SizedBox(height: 15),
-
-                //  Gallery
+                // Gallery
                 GallerySection(product: product),
 
                 const SizedBox(height: 15),
 
-                //  Size guide
+                // Size guide
                 CustomListTile(lefttitle: 'Size', righttitle: 'Size Guide'),
                 const SizedBox(height: 10),
-                Customsizeguide(product: product),
+                CustomSizeGuide(product: product),
 
                 const SizedBox(height: 15),
 
-                //  Description
+                // Description
                 CustomListTile(lefttitle: 'Description'),
                 const SizedBox(height: 8),
                 Text(
@@ -122,13 +121,11 @@ class ProductViewScreen extends StatelessWidget {
 
                 const SizedBox(height: 20),
 
-                //  Review Section
+                // Review Section
                 CustomListTile(
                   lefttitle: 'Review',
                   righttitle: 'View All',
-                  ontap: (){
-
-
+                  ontap: () {
                     Get.toNamed(Routes.reviewScreen);
                   },
                 ),
@@ -137,7 +134,7 @@ class ProductViewScreen extends StatelessWidget {
 
                 const SizedBox(height: 15),
 
-                //  Total Price
+                // Total Price
                 CustomListTile(
                   lefttitle: 'Total Price',
                   righttitle: '\$${product.price ?? 0}',
@@ -157,12 +154,17 @@ class ProductViewScreen extends StatelessWidget {
 
                 const SizedBox(height: 15),
 
-                //  Add to Cart
+                // Add to Cart
                 Center(
                   child: CustomButton(
                     title: 'Add to Cart',
                     onpress: () {
-                      Get.toNamed(Routes.cartScreen, arguments: product);
+                      cartController.addToCart(product);
+                      Get.snackbar(
+                        'Added to Cart',
+                        '${product.name} has been added to your cart.',
+                        snackPosition: SnackPosition.BOTTOM,
+                      );
                     },
                   ),
                 ),
@@ -177,19 +179,15 @@ class ProductViewScreen extends StatelessWidget {
   }
 }
 
-/// hear is custom widgets
-
-class Customsizeguide extends StatelessWidget {
+class CustomSizeGuide extends StatelessWidget {
   final Product product;
-  const Customsizeguide({super.key, required this.product});
+  const CustomSizeGuide({Key? key, required this.product}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
     List<String> sizes = [];
 
     final rawSizes = product.sizes;
-
     if (rawSizes != null) {
       if (rawSizes is List) {
         sizes = rawSizes.map((e) => e.toString()).toList();
@@ -198,7 +196,6 @@ class Customsizeguide extends StatelessWidget {
       }
     }
 
-    //  Fallback to default sizes if still empty
     if (sizes.isEmpty) {
       sizes = ['S', 'M', 'L', 'XL', 'XXL'];
     }
@@ -208,20 +205,16 @@ class Customsizeguide extends StatelessWidget {
       children: [
         const Text(
           "Available Sizes",
-          style: TextStyle(
-            fontSize: 15,
-            fontWeight: FontWeight.w600,
-          ),
+          style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
         ),
         const SizedBox(height: 10),
-
         SizedBox(
           height: 70,
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             itemCount: sizes.length,
-            separatorBuilder: (context, index) => const SizedBox(width: 10),
-            itemBuilder: (context, index) {
+            separatorBuilder: (_, __) => const SizedBox(width: 10),
+            itemBuilder: (_, index) {
               final size = sizes[index];
               return Container(
                 height: 60,
@@ -249,15 +242,13 @@ class Customsizeguide extends StatelessWidget {
   }
 }
 
-
 extension on String {
   map(String Function(dynamic e) param0) {}
 }
 
-
 class GallerySection extends StatelessWidget {
   final Product product;
-  const GallerySection({super.key, required this.product});
+  const GallerySection({Key? key, required this.product}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -266,7 +257,7 @@ class GallerySection extends StatelessWidget {
     return SizedBox(
       height: 80,
       child: ListView.builder(
-       physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         scrollDirection: Axis.horizontal,
         itemCount: galleryImages.length,
         itemBuilder: (context, index) {
@@ -290,5 +281,3 @@ class GallerySection extends StatelessWidget {
     );
   }
 }
-
-

@@ -18,8 +18,6 @@ class _PaymentWebViewState extends State<PaymentWebView> {
   @override
   void initState() {
     super.initState();
-
-    // ✅ Ensure correct platform webview implementation is set
     if (defaultTargetPlatform == TargetPlatform.android) {
       WebViewPlatform.instance = AndroidWebViewPlatform();
     } else if (defaultTargetPlatform == TargetPlatform.iOS) {

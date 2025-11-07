@@ -62,6 +62,7 @@ class _UpdateAccountInformationState extends State<UpdateAccountInformation> {
                         height: 80,
                         width: 80,
                         decoration: BoxDecoration(
+                          color: AppColor.circleAvatersColor,
                           shape: BoxShape.circle,
                           image: DecorationImage(image: _updateuserProfileController.imagePath.isEmpty?
                           NetworkImage("${ApiConstant.baseUrl}${Get.arguments['image']}"):
@@ -73,8 +74,8 @@ class _UpdateAccountInformationState extends State<UpdateAccountInformation> {
                       ),
                       
                       Positioned(
-                        bottom: 0,
-                        right: 0,
+                        bottom: -10,
+                        right: 20,
                         child: InkWell(
                           onTap: (){
                             _updateuserProfileController.getImage();

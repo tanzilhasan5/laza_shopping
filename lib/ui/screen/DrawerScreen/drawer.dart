@@ -118,6 +118,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 ),
               ),
               onTap: () {
+                Get.toNamed(Routes.my_cart_Screen);
+
                 setState(() => selectedIndex = 2);
 
               },

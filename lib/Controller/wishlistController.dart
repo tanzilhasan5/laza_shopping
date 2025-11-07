@@ -10,16 +10,7 @@ class WishlistController extends GetxController {
 
   void toggleWishlist(Map<String, String> item) {
     if (isInWishlist(item['id']!)) {
-      Get.defaultDialog(
-          title: "Remove Item",
-          middleText: "Are you sure you want to remove this item?",
-          actions: [
-            TextButton(onPressed: (){ wishlist.removeWhere((element) => element['id'] == item['id']);;Get.back();}, child: Text('Remove')),
-            TextButton(onPressed: (){Get.back();}, child: Text('Cancel')),
-
-
-          ]
-      );
+      wishlist.removeWhere((element) => element['id'] == item['id']);
     } else {
       wishlist.add(item);
     }

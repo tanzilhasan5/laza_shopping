@@ -13,7 +13,7 @@ class CartScreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: const Text(' Cart'),
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
       ),
 
       body: SingleChildScrollView(
