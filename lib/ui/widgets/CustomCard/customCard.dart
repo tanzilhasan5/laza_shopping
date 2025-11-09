@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
@@ -8,9 +7,10 @@ import '../../../Controller/product_controller.dart';
 import '../../../Data/models/productModel.dart';
 import '../../../routs/routs.dart';
 import '../../../Controller/wishlistController.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomCard extends StatefulWidget {
-  CustomCard({super.key});
+  const CustomCard({super.key});
 
   @override
   State<CustomCard> createState() => _CustomCardState();
@@ -18,7 +18,7 @@ class CustomCard extends StatefulWidget {
 
 class _CustomCardState extends State<CustomCard> {
   final WishlistController wishlistController = Get.put(WishlistController());
-  final productController = Get.put(ProductController());
+  final ProductController productController = Get.put(ProductController());
 
   @override
   void initState() {
@@ -28,27 +28,30 @@ class _CustomCardState extends State<CustomCard> {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(() =>
-    productController.isProductLoading.value
-        ? const Center(child: CircularProgressIndicator())
-        : MasonryGridView.count(
-      physics: const NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      crossAxisCount: 2,
-      itemCount: productController.productList.length,
-      mainAxisSpacing: 10,
-      crossAxisSpacing: 10,
-      padding: const EdgeInsets.all(12),
-      itemBuilder: (context, index) {
-        final product = productController.productList[index];
-        final isFav = wishlistController.isInWishlist(product.id.toString());
-        return ProductCard(
-          product: product,
-          isFav: isFav,
-          wishlistController: wishlistController,
-        );
-      },
-    ));
+    return Obx(() {
+      if (productController.isProductLoading.value) {
+        return const Center(child: CircularProgressIndicator());
+      }
+
+      return MasonryGridView.count(
+        physics: const NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        crossAxisCount: 2,
+        itemCount: productController.productList.length,
+        mainAxisSpacing: 10,
+        crossAxisSpacing: 10,
+        itemBuilder: (context, index) {
+          final product = productController.productList[index];
+          final isFav = wishlistController.isInWishlist(product.id.toString());
+
+          return ProductCard(
+            product: product,
+            isFav: isFav,
+            wishlistController: wishlistController,
+          );
+        },
+      );
+    });
   }
 }
 
@@ -64,14 +67,19 @@ class ProductCard extends StatelessWidget {
     required this.wishlistController,
   });
 
+  // Helper to get full image URL
+  String get _imageUrl {
+    final path = product.images?.isNotEmpty == true ? product.images!.first : '';
+    return path.isNotEmpty
+        ? "${ApiConstant.baseUrl}$path"
+        : 'https://via.placeholder.com/150';
+  }
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Get.toNamed(
-          Routes.ProductViewScreen,
-          arguments: product,
-        );
+        Get.toNamed(Routes.ProductViewScreen, arguments: product);
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -81,56 +89,59 @@ class ProductCard extends StatelessWidget {
               Hero(
                 tag: 'product_${product.id}',
                 child: Container(
-                  height: 180,
+                  height: 180.h,
                   decoration: BoxDecoration(
                     color: AppColor.circleAvatersColor,
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(12.r),
                     image: DecorationImage(
-                      image: NetworkImage(
-                        "${ApiConstant.baseUrl}${product.images?[0]}",
-                      ),
+                      image: NetworkImage(_imageUrl),
                       fit: BoxFit.cover,
+                      onError: (_, __) {},
                     ),
                   ),
                 ),
               ),
               Positioned(
-                top: 8,
-                right: 8,
+                top: 8.h,
+                right: 8.w,
                 child: Obx(() {
                   final isFav = wishlistController.isInWishlist(product.id.toString());
                   return InkWell(
-                    onTap: () => wishlistController.toggleWishlist({
-                      "title": product.name ?? "",
-                      "price": product.price?.toString() ?? "",
-                      "imagePath": product.images?.first ?? "",
-                      "id": product.id.toString(),
-                    }),
+                    onTap: () {
+                      wishlistController.toggleWishlist({
+                        "title": product.name ?? "",
+                        "price": product.price?.toString() ?? "",
+                        "imagePath": _imageUrl, // Full URL
+                        "id": product.id.toString(),
+                      });
+                    },
                     child: Icon(
                       isFav ? Icons.favorite : Icons.favorite_border,
                       color: isFav ? Colors.red : AppColor.textColor,
+                      size: 20.sp,
                     ),
                   );
                 }),
               ),
             ],
           ),
-          const SizedBox(height: 5),
+          SizedBox(height: 5.h),
           Text(
             product.name ?? '',
-            style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w500),
+            style: TextStyle(fontSize: 11.sp, fontWeight: FontWeight.w500),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
           ),
           Text(
             product.category ?? '',
-            style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w500),
+            style: TextStyle(fontSize: 11.sp, fontWeight: FontWeight.w500, color: AppColor.textColor),
           ),
           Text(
             '\$${product.price ?? 0}',
-            style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
+            style: TextStyle(fontSize: 13.sp, fontWeight: FontWeight.w600),
           ),
         ],
       ),
     );
   }
 }
-

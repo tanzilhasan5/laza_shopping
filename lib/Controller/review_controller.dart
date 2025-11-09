@@ -1,15 +1,19 @@
 import 'dart:convert';
 
 import 'package:get/get.dart';
+import 'package:laza_shopping/Data/models/review_model.dart';
 
 import '../Data/helpers/prefs_helpers.dart';
+import '../Data/models/productModel.dart';
 import '../Data/services/api_checker.dart';
 import '../Data/services/api_client.dart';
 import '../Data/services/api_constant.dart';
 import '../Data/utils/app_constants.dart';
 import '../routs/routs.dart';
+import 'package:http/http.dart' as http;
 
-class AddReviewController extends  GetxController{
+
+class ReviewController extends  GetxController{
 
   RxBool isHidden = true.obs;
   var isLoading = false.obs;
@@ -47,4 +51,10 @@ class AddReviewController extends  GetxController{
     }
     isLoading(false);
   }
+
+
+
+
+
 }
+

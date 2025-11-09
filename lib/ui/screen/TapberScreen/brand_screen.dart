@@ -17,9 +17,11 @@ class BrandScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
         title: Text(brandName),
       ),
-      body: brandProducts.isEmpty
+      body:
+      brandProducts.isEmpty
           ? const Center(
               child: Text('No products found for this brand'),
             )
@@ -29,14 +31,14 @@ class BrandScreen extends StatelessWidget {
                 crossAxisCount: 2,
                 crossAxisSpacing: 10,
                 mainAxisSpacing: 10,
-                childAspectRatio: 0.75, 
+                childAspectRatio: 0.71,
               ),
               itemCount: brandProducts.length,
               itemBuilder: (context, index) {
                 final product = brandProducts[index];
                 return ProductCard(
                   product: product,
-                  isFav: false, // You might want to get this from a wishlist controller
+                  isFav: false,
                   wishlistController: Get.find(),
                 );
               },

@@ -1,3 +1,4 @@
+/*
 import 'package:easy_stars/easy_stars.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -100,12 +101,61 @@ class ReviewScreen extends StatelessWidget {
                      ],
                    ),
               SizedBox(height: 15,),
-              ListOfReview(productId:productId.toString(),),
+              ListOfReview(productId:),
 
               SizedBox(height: 50,),
           
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+*/
+import 'package:easy_stars/easy_stars.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:laza_shopping/ui/widgets/Review/listof_review.dart';
+import 'package:laza_shopping/routs/routs.dart';
+import 'package:laza_shopping/utils/appColor.dart' show AppColor;
+import 'package:laza_shopping/Controller/product_review_controller.dart';
+
+import '../../../Controller/review_controller.dart';
+
+class ReviewScreen extends StatelessWidget {
+  final int? productId;               // <-- **int**, required
+  const ReviewScreen({super.key,  this.productId});
+
+  @override
+  Widget build(BuildContext context) {
+    // Grab the controller (already put in main.dart)
+    final ReviewController reviewCtrl = Get.find<ReviewController>();
+
+    // Trigger fetch once (you could also do it in ListOfReview)
+
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Colors.white70,
+        title: const Text(
+          'Reviews',
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+        ),
+      ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Column(
+          children: [
+            // ────── Header (total reviews + average rating) ──────
+
+            const SizedBox(height: 15),
+
+            // ────── List of reviews ──────
+            ListOfReview(productId: productId),
+
+            const SizedBox(height: 50),
+          ],
         ),
       ),
     );

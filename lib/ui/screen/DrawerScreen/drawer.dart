@@ -133,7 +133,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   ? Colors.grey.shade200
                   : Colors.transparent,
               leading: Icon(
-                Icons.settings,
+                Icons.settings_outlined,
                 color: selectedIndex == 3 ? Colors.blue : Colors.black,
               ),
               title: Text(
@@ -191,22 +191,37 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   Get.defaultDialog(
                     buttonColor: AppColor.primaryColors,
 
-                    backgroundColor: Colors.grey,
+                    backgroundColor: Colors.white,
                     title: "Logout",
+                    titleStyle: TextStyle(color: Colors.red,fontSize: 18 ,fontWeight: FontWeight.w700),
                     middleText: "Are you sure you want to logout?",
-                    textCancel: "Cancel",
-                    textConfirm: "Logout",
-                    confirmTextColor: Colors.white,
-                    cancelTextColor: Colors.white,
-                    onConfirm: () async {
-                      await PrefsHelper.remove(AppConstants.bearerToken);
-                      Get.offAllNamed(Routes.login_Screen);
-                      setState(() => selectedIndex = 4);
-                      Get.back(); // close the dialog
-                    },
-                    onCancel: () {
-                      Get.back();
-                    },
+                    middleTextStyle: TextStyle(color: AppColor.textColor,fontSize: 18 ,fontWeight: FontWeight.w600),
+                    confirm: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xff9775FA),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))
+                      ),
+                        onPressed: (){
+                        Get.back();
+
+                    }, child: Text('Cancel',style: TextStyle(color: Colors.white),)
+                    ),
+
+                    cancel: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color(0xffF6F2FF),
+                          side: BorderSide(
+                            width: 2,
+                            color: Color(0xff9775FA)
+                          ),
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))
+                        ),
+                        onPressed: () async{
+                          await PrefsHelper.remove(AppConstants.bearerToken);
+                          Get.offAllNamed(Routes.login_Screen);
+                          setState(() => selectedIndex = 4);
+                          Get.back();
+                    }, child: Text('Yes, Logout')),
                   );
                 }
 

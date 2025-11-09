@@ -147,7 +147,7 @@ class _CustomDeleveryAndPaymentState extends State<CustomDeleveryAndPayment> {
                 ),
                 InkWell(
                   onTap: (){
-                    Get.toNamed(Routes.payment);
+                    Get.toNamed(Routes.my_cart_Screen);
                   },
                     child: const Icon(Icons.chevron_right)),
               ],
@@ -186,7 +186,7 @@ class _CustomDeleveryAndPaymentState extends State<CustomDeleveryAndPayment> {
                       TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
                     ),
                     Text(
-                      'Sylhet',
+                      '******6859',
                       style: TextStyle(
                           fontSize: 11,
                           fontWeight: FontWeight.w400,
@@ -272,6 +272,7 @@ class _CustomDeleveryAndPaymentState extends State<CustomDeleveryAndPayment> {
             onpress: () {
               bool isValid = _validateAndSubmit();
               if (isValid) {
+                Get.toNamed(Routes.payment);
 
               }
             },

@@ -27,6 +27,7 @@ class _MainButtomNavberState extends State<MainButtomNavber> {
       key: scaffoldKey, drawer: CustomDrawer(),
       body: _screen[_slectedIndex],
       bottomNavigationBar: NavigationBar(
+        backgroundColor: Colors.white,
         selectedIndex: _slectedIndex,
         onDestinationSelected: (int index) {
           _slectedIndex = index;

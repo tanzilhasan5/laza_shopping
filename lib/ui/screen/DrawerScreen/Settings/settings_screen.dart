@@ -56,7 +56,8 @@ class SettingScreen extends StatelessWidget {
               },
               child: Row(
                 children: [
-                  Icon(Icons.privacy_tip_sharp,color: AppColor.primaryColors ),
+                  Icon(Icons.privacy_tip_outlined,color: AppColor.primaryColors,),
+            /*    ImageIcon(AssetImage('assets/icon/shield-question.png'),color: AppColor.primaryColors,),*/
                   SizedBox(width: 10,),
                   Text("About Us")
                 ],

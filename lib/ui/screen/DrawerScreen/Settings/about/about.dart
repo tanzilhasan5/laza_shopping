@@ -15,12 +15,13 @@ class AboutUs extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
         title: const Text(
           'About Us',
           style: TextStyle(fontWeight: FontWeight.w600),
         ),
         centerTitle: true,
-        elevation: 1,
+        elevation: 0,
       ),
       body: Obx(() {
         if (_controller.isLoading.value) {
@@ -36,35 +37,27 @@ class AboutUs extends StatelessWidget {
           itemBuilder: (context, index) {
             final item = _controller.aboutUsList[index];
             return Padding(
-              padding: const EdgeInsets.only(bottom: 20),
-              child: Container(
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: Colors.grey.shade100,
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: Colors.grey.shade300),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      item.heading ?? 'No Title',
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
+              padding: const EdgeInsets.all(12),
+              child:  Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    item.heading ?? 'No Title',
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
                     ),
-                    const SizedBox(height: 8),
-                    Text(
-                      item.description ?? 'No description available.',
-                      style: const TextStyle(
-                        fontSize: 15,
-                        height: 1.5,
-                        color: Colors.black87,
-                      ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    item.description ?? 'No description available.',
+                    style: const TextStyle(
+                      fontSize: 15,
+                      height: 1.5,
+                      color: Colors.black87,
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             );
           },

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:laza_shopping/Controller/brands_controller.dart';
 import 'package:laza_shopping/Data/services/api_constant.dart';
@@ -24,7 +25,7 @@ class _CustomTabBarState extends State<CustomTabBar> {
   @override
   Widget build(BuildContext context) {
     return Obx(() => SizedBox(
-      height: 50,
+      height: 50.h,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         itemCount: brandsController.brandList.length,

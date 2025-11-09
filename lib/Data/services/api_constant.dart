@@ -10,6 +10,7 @@ class ApiConstant{
   static String forgetpassword="/auth/forgetpassword/";
   static String otp(String userName)=>"/auth/vefiry_for_forget/$userName/";
   static String productView(Int id)=>"/shoping/products/$id/";
+  static String review = "/shoping/products/reviews/13/";
   static String reset_password="/auth/reset_password/";
   static String shopingproducts="/shoping/products/";
   static String brands="/shoping/brands/";
@@ -18,7 +19,7 @@ class ApiConstant{
   static String terms_condition="/auth/terms";
   static String privacypolicy="/auth/privacy-policy/";
   static String about_us="/auth/about-us/";
-  static String productReviewDataEndPoint( int productId) => "/shoping/products/reviews/$productId/";
+
   static String  add_product_review='/shoping/products/review/';
 
 

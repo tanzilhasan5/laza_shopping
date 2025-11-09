@@ -32,13 +32,17 @@ class ProductViewScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     IconButton(
-                      icon: const Icon(Icons.arrow_back),
-                      onPressed: () => Get.back(),
+                      icon:  Icon(Icons.arrow_back),
+                      onPressed: () => Get.toNamed(Routes.main_buttom_naver),
                     ),
-                    IconButton(
-                      icon: const Icon(Icons.favorite_border),
-                      onPressed: () {},
-                    ),
+                    InkWell(
+                      onTap: (){
+                        Get.toNamed(Routes.cartScreen);
+                      },
+                      child: ImageIcon(AssetImage('assets/icon/Bag.png'),
+                        
+                      ),
+                    )
                   ],
                 ),
 

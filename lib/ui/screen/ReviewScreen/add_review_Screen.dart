@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:laza_shopping/Controller/add_review_controller.dart';
+import 'package:laza_shopping/Controller/review_controller.dart';
 import 'package:laza_shopping/ui/widgets/CustomAuthWidgets/custom_textfield.dart';
 import 'package:laza_shopping/ui/widgets/Custom_Reviews/slidder_review.dart';
 import 'package:laza_shopping/utils/appColor.dart';
@@ -17,8 +17,8 @@ class AddReviewScreen extends StatelessWidget {
     final TextEditingController _driscriptionController = TextEditingController();
     final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-    final AddReviewController addReviewController = Get.put(
-        AddReviewController());
+    final ReviewController addReviewController = Get.put(
+        ReviewController());
     return Scaffold(
       appBar: AppBar(
         title: const Text(

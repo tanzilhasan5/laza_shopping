@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:laza_shopping/ui/widgets/CustomCard/customCard.dart';
@@ -29,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         appBar:
         PreferredSize(
-            preferredSize: Size(double.maxFinite, 100),
+            preferredSize: Size(double.maxFinite.h, 100.h),
             child: Customappber(
               leftIconColor: AppColor.circleAvatersColor,
               rightIconColor: AppColor.circleAvatersColor,
